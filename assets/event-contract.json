@@ -1,0 +1,248 @@
+{
+  "template_kind": "adaptable_event_contract_not_a_deployable_schema",
+  "version": "1.0",
+  "instructions": [
+    "Map these semantic events to the existing analytics and billing system.",
+    "Define eligibility, counting unit, assignment, exposure and outcome window before launch.",
+    "Replace null project decisions before using the contract in production.",
+    "Use payment-provider and server records as the paid-outcome source of truth.",
+    "Do not send raw payment details, passwords, sensitive free text or unnecessary personal data."
+  ],
+  "project_decisions": {
+    "primary_outcome": null,
+    "eligible_population": null,
+    "counting_and_randomization_unit": null,
+    "identity_merge_policy": null,
+    "outcome_window_days": null,
+    "declared_exclusions": null,
+    "experiment_allocation": null,
+    "exposure_opportunity": null,
+    "revenue_accounting_basis": null,
+    "currency_conversion_policy": null,
+    "consent_and_retention_policy": null
+  },
+  "common_properties": {
+    "event_id": "Unique event identifier; retries reuse the same logical identifier.",
+    "occurred_at": "UTC ISO-8601 event time.",
+    "received_at": "UTC ISO-8601 ingestion time for latency checks.",
+    "schema_version": "Version of the project event schema.",
+    "source": "Declared producer, such as client, assignment system, application server, or verified billing event.",
+    "unit_id": "Pseudonymous eligible unit; type must match the analysis definition.",
+    "account_id": "Pseudonymous account identifier when applicable.",
+    "experiment_id": "Stable experiment identifier when enrolled.",
+    "variant_id": "Stable assigned variant when enrolled; do not infer from purchase choice.",
+    "route": "Sanitized path without personal query parameters.",
+    "plan_id": "Stable verified catalog identifier when applicable.",
+    "billing_interval": "Actual interval, distinct from monthly-equivalent presentation.",
+    "currency": "ISO currency code when an amount is recorded.",
+    "amount_minor_units": "Integer in the currency's documented minor unit when relevant; no implicit currency conversion.",
+    "cohort_entered_at": "Timestamp of the predefined cohort entry when applicable.",
+    "provider": "Verified billing provider identifier when an outcome is provider-backed.",
+    "transaction_id": "Stable provider transaction or invoice outcome identifier; not a webhook delivery identifier.",
+    "subscription_id": "Stable provider subscription identifier when applicable.",
+    "effective_at": "UTC ISO-8601 time the accepted subscription change takes effect."
+  },
+  "events": [
+    {
+      "name": "experiment_assigned",
+      "source": "assignment_system",
+      "trigger": "First eligible unit assignment",
+      "required": [
+        "unit_id",
+        "experiment_id",
+        "variant_id",
+        "occurred_at"
+      ],
+      "dedupe_key": [
+        "experiment_id",
+        "unit_id"
+      ],
+      "notes": "Keep assignment stable; retain intended allocation and pre-exposure eligibility."
+    },
+    {
+      "name": "experiment_exposed",
+      "source": "client_or_server_matching_the_defined_opportunity",
+      "trigger": "The unit has the predefined opportunity to receive its treatment",
+      "required": [
+        "unit_id",
+        "experiment_id",
+        "variant_id",
+        "occurred_at"
+      ],
+      "dedupe_key": [
+        "experiment_id",
+        "unit_id"
+      ],
+      "notes": "Use equivalent opportunity rules across variants; do not require a treatment-influenced downstream click."
+    },
+    {
+      "name": "pricing_viewed",
+      "source": "client",
+      "trigger": "Defined pricing surface exposure",
+      "required": [
+        "unit_id",
+        "route",
+        "occurred_at"
+      ],
+      "notes": "Diagnostic; not a paid conversion. Deduplicate to the agreed unit/window for rates."
+    },
+    {
+      "name": "plan_selected",
+      "source": "client",
+      "trigger": "Explicit user plan or interval selection",
+      "required": [
+        "unit_id",
+        "plan_id",
+        "billing_interval",
+        "occurred_at"
+      ],
+      "notes": "Selection can change; preserve it through signup and checkout without trusting client amounts."
+    },
+    {
+      "name": "signup_completed",
+      "source": "application_server",
+      "trigger": "Account creation succeeds durably",
+      "required": [
+        "unit_id",
+        "account_id",
+        "occurred_at"
+      ],
+      "dedupe_key": [
+        "account_id"
+      ],
+      "notes": "Not a signup-button click."
+    },
+    {
+      "name": "activation_completed",
+      "source": "application_server_or_validated_product_event",
+      "trigger": "Project-defined first meaningful value task completes",
+      "required": [
+        "unit_id",
+        "account_id",
+        "occurred_at"
+      ],
+      "project_specific_definition": null,
+      "notes": "A login or tutorial completion is not automatically product value."
+    },
+    {
+      "name": "checkout_started",
+      "source": "application_server",
+      "trigger": "Valid checkout session or order is created",
+      "required": [
+        "unit_id",
+        "account_id",
+        "plan_id",
+        "billing_interval",
+        "currency",
+        "occurred_at"
+      ],
+      "notes": "Diagnostic only; not paid and not sufficient to grant paid access."
+    },
+    {
+      "name": "purchase_completed",
+      "source": "verified_server_billing_outcome",
+      "trigger": "The declared first positive-value paid outcome is confirmed",
+      "required": [
+        "unit_id",
+        "account_id",
+        "transaction_id",
+        "plan_id",
+        "billing_interval",
+        "currency",
+        "amount_minor_units",
+        "occurred_at",
+        "provider"
+      ],
+      "dedupe_key": [
+        "provider",
+        "transaction_id"
+      ],
+      "counting_rule": "Count each eligible unit at most once for a first-paid conversion within the predefined window.",
+      "notes": "Exclude trial starts and zero invoices; do not emit solely from a redirect or thank-you page. Reconcile outcome and net revenue separately from raw event delivery."
+    },
+    {
+      "name": "subscription_renewed",
+      "source": "verified_server_billing_outcome",
+      "trigger": "A later recurring billing outcome is confirmed",
+      "required": [
+        "account_id",
+        "transaction_id",
+        "currency",
+        "amount_minor_units",
+        "occurred_at",
+        "provider"
+      ],
+      "dedupe_key": [
+        "provider",
+        "transaction_id"
+      ],
+      "notes": "Separate from acquisition conversion; distinguish paid renewal from scheduled renewal."
+    },
+    {
+      "name": "subscription_expanded",
+      "source": "verified_billing_and_entitlement_state",
+      "trigger": "Existing account increases defined recurring value",
+      "required": [
+        "account_id",
+        "subscription_id",
+        "currency",
+        "recurring_value_delta_minor_units",
+        "occurred_at"
+      ],
+      "notes": "Normalize interval; exclude duplicate deliveries, migrations without economic increase and new accounts."
+    },
+    {
+      "name": "refund_issued",
+      "source": "verified_server_billing_outcome",
+      "trigger": "Refund is confirmed under the provider's documented semantics",
+      "required": [
+        "account_id",
+        "refund_id",
+        "original_transaction_id",
+        "currency",
+        "amount_minor_units",
+        "occurred_at",
+        "provider"
+      ],
+      "dedupe_key": [
+        "provider",
+        "refund_id"
+      ],
+      "notes": "Reconcile partial/full refunds and attribution; do not subtract the same refund twice."
+    },
+    {
+      "name": "cancellation_requested",
+      "source": "application_server_or_verified_billing_state",
+      "trigger": "A cancellation request is durably accepted",
+      "required": [
+        "account_id",
+        "subscription_id",
+        "effective_at",
+        "occurred_at"
+      ],
+      "notes": "Record immediate versus period-end behavior; do not equate request date with lost access."
+    },
+    {
+      "name": "subscription_ended",
+      "source": "verified_billing_and_entitlement_state",
+      "trigger": "Subscription ends under the declared policy",
+      "required": [
+        "account_id",
+        "subscription_id",
+        "effective_at",
+        "occurred_at"
+      ],
+      "notes": "Distinguish voluntary cancellation, failed-payment churn, and migration."
+    }
+  ],
+  "validity_checks": [
+    "Deduplicate at both event delivery and business outcome levels.",
+    "Reconcile paid counts and amounts to billing records.",
+    "Inspect intended/observed assignment and exposure ratios.",
+    "Check identity collisions, cross-domain redirects and account merges.",
+    "Check missing events and consent-related coverage by variant.",
+    "Keep cohorts equally mature and compare within declared windows.",
+    "Test retries, duplicate/out-of-order delivery, pending payments, refunds and entitlement state.",
+    "Document unavailable data instead of filling it with assumed values."
+  ]
+}

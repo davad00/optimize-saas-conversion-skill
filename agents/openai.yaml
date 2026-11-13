@@ -1,0 +1,14 @@
+interface:
+  display_name: SaaS Conversion Optimizer
+  short_description: Improve SaaS purchases, trials, and paid subscriptions
+  default_prompt: Use $optimize-saas-conversion to audit this SaaS funnel, implement
+    the most promising improvements, and measure paid conversion and retention.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
