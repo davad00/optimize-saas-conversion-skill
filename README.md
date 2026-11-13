@@ -4,7 +4,7 @@ A Codex skill for improving SaaS purchases, paid subscriptions, and retained cus
 
 Use it to audit an existing website, improve a pricing page, implement a clearer signup or checkout journey, reduce trial friction, and design a useful measurement plan. The workflow connects observed buyer obstacles to concrete changes in copy, design, offers, and code.
 
-**10 focused playbooks · 22 persuasion patterns · 4 reusable templates · Tested Python calculator**
+**10 focused playbooks · 22 persuasion patterns · 5 reusable templates · Mandatory pricing-state audit · Tested Python calculator**
 
 ## What it covers
 
@@ -14,13 +14,27 @@ Use it to audit an existing website, improve a pricing page, implement a clearer
 | Positioning and copy | Value propositions, headlines, product demonstrations, proof, CTAs, offers, and objection handling |
 | Visual design | Color theory, palette relationships, contrast, typography, hierarchy, mobile layouts, motion, and accessibility |
 | Persuasion | Anchoring, social proof, authority, reciprocity, risk reversal, progress, ownership, defaults, price framing, and genuine urgency |
-| Pricing and packaging | Value metrics, tiers, seat/usage/hybrid models, annual billing, discounts, bundles, upgrades, and economic tradeoffs |
+| Pricing and packaging | Initial billing defaults, monthly-equivalent annual headlines, real savings, value metrics, tiers, seat/usage/hybrid models, discounts, upgrades, and economic tradeoffs |
 | Signup and checkout | Form friction, authentication, plan selection, billing clarity, payment recovery, and verified fulfillment |
 | Activation and retention | Trials, freemium, first value, contextual paywalls, renewals, failed-payment recovery, cancellation, and expansion |
 | Measurement | Event contracts, cohort maturity, sample sizes, uncertainty, allocation checks, and revenue/retention guardrails |
 | Implementation | Existing-stack integration, responsive behavior, targeted verification, and independent review |
 
 The main [SKILL.md](SKILL.md) routes Codex to the relevant playbooks. Detailed material loads only when needed.
+
+## Pricing basics it must check
+
+Every pricing review must inspect the initial billing state and every supported interval, then report a concrete default decision and a price-state matrix. A short priority list cannot omit these checks.
+
+- **Starting selection:** use annual-first as a practical starting hypothesis for a suitable, genuinely discounted self-serve offer and a new undecided visitor. Respect explicit instructions, buyer choices, valid offer links, existing accounts, experiment assignment, and evidence favoring monthly.
+- **Comparable headline prices:** show the monthly equivalent prominently in annual mode, with the exact annual charge and `billed yearly` directly underneath. Keep the comparison unit consistent across the toggle.
+- **Real savings and tier value:** calculate each plan's actual discount, explain meaningful upgrade benefits, and use supported plan-fit recommendations.
+- **Purchase continuity:** preserve the selected plan and interval through signup and checkout. At payment, give the actual amount due now clear prominence.
+- **Visual and behavioral verification:** check both switch directions, readable mobile terms, selected-state semantics, and relevant return paths. Mark unavailable checks explicitly.
+
+For example, a verified **$12/month** plan with a **$115.20/year** option should show **$9.60/month** as its primary annual-mode comparison, with **$115.20 billed yearly** immediately below. Its annual saving is **$28.80, or 20%**. The skill treats this as a concrete presentation improvement; conversion uplift still needs outcome evidence.
+
+The same coverage approach applies across landing pages, proof and objections, signup, checkout, activation, visual hierarchy, and measurement. See the [pricing audit template](assets/pricing-audit.md) and [independent review checklist](assets/review-checklist.md).
 
 ## Install in Codex
 
@@ -85,8 +99,8 @@ a realistic way to learn whether they help.
 ## Workflow
 
 1. Establish the buyer, offer, conversion outcome, and verified product facts.
-2. Inspect the relevant journey and locate the obstacle.
-3. Prioritize a small, coherent set of improvements.
+2. Inspect the relevant journey and complete the applicable baseline checks, including every pricing state.
+3. Record each check's result, then prioritize a small, coherent set of improvements.
 4. Write exact copy and behavior, then implement within the requested scope.
 5. Verify the affected experience and report any unavailable checks.
 6. Define how to measure business outcomes and distinguish hypotheses from demonstrated effects.
@@ -104,6 +118,7 @@ The skill preserves the existing stack and design system. It treats purchases, r
 | [assets/experiment-brief.md](assets/experiment-brief.md) | Experiment design and decision record |
 | [assets/event-contract.json](assets/event-contract.json) | Adaptable analytics event definitions |
 | [assets/review-checklist.md](assets/review-checklist.md) | Independent or self-review checklist |
+| [assets/pricing-audit.md](assets/pricing-audit.md) | Required billing-state matrix, default decision, savings, tier value, and checkout verification |
 | [scripts/cro_math.py](scripts/cro_math.py) | Sample-size, conversion, pricing, and contrast calculations |
 | [scripts/test_cro_math.py](scripts/test_cro_math.py) | Calculator tests |
 
@@ -128,6 +143,8 @@ python3 scripts/cro_math.py contrast '#ffffff' '#2563eb'
 ```
 
 Read the assumptions and warnings in each JSON result. The statistical commands assume independent binary outcomes and do not validate experiment assignment, stopping rules, cohort maturity, revenue distributions, or causality. A contrast result is not a complete accessibility audit.
+
+The pricing command includes `suggested_presentation.monthly` and `.annual` with separate primary comparison prices and actual billed amounts. It marks rounded equivalents, retains exact charges, and avoids savings labels for equal-price or more-expensive annual offers. It does not choose a billing default or change the commercial offer.
 
 Run the calculator tests:
 

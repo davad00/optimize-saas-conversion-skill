@@ -52,7 +52,11 @@ Use proximity to communicate relationship, alignment to support comparison, and 
 
 Reuse established typefaces and avoid unnecessary font requests. Use a clear type scale, comfortable body size and line height, appropriate line length, and enough contrast for supporting text. A typical starting body range of 16–18 CSS px and a text measure around 45–75 characters are design heuristics; adapt to audience, script, device, and existing brand.
 
-Keep prices understandable: preserve currency, quantity unit, billing period, and actual charge. A giant monthly equivalent cannot compensate for unreadably small annual terms.
+For comparable monthly/annual SaaS plans, keep the dominant price on the same monthly basis in both states. In annual mode use a hierarchy such as **$9.60 / month** → **$115.20 billed yearly, before tax** → **Save 20%**, using only verified terms. The monthly equivalent is the main comparison anchor; the adjacent annual total explains the actual payment. Make both legible at the narrowest supported viewport. If the product is sold on a genuinely different basis, document the reason for another hierarchy.
+
+At checkout and payment confirmation, give the actual amount due now and the recurring commitment clear prominence. A pricing-card monthly equivalent must not replace the payment summary.
+
+Inspect the initial billing selection as part of the composition. For the annual-first starting rule and selection exceptions, follow `pricing-and-packaging.md`. Keep both billing options discoverable and the selected state clear in text and semantics. Preserve the visitor's deliberate choice when the interface updates.
 
 Use semantic headings, real text rather than essential text in images, and meaningful link names. Avoid clipping longer translated headlines or truncating plan limitations.
 
@@ -88,6 +92,6 @@ Choose the smallest implementation that supports the design goal. Prevent analyt
 
 ## Visual acceptance
 
-Inspect the actual result, not only source code. Confirm readable offer and terms, consistent primary action, meaningful proof, accessible states, stable layout, and a working path at representative sizes.
+Inspect the actual result, not only source code. Confirm readable offer and terms, consistent primary action, meaningful proof, accessible states, stable layout, and a working path at representative sizes. For pricing, inspect first load and both billing states for every tier: compare the dominant price, unit, actual charge, savings and selected-state label. Merely finding the monthly equivalent somewhere on the page does not establish correct price hierarchy.
 
 A screenshot can verify composition but not keyboard behavior, payment, or field performance. Report the boundary of what was checked. Prefer a concrete before/after change to an aesthetic score such as "9/10 conversion design."

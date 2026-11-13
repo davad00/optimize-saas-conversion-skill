@@ -8,10 +8,16 @@ State who is trying to do what, their acquisition context, device/language, and 
 
 ## Inspect
 
+- Is every applicable baseline check from `SKILL.md` recorded with evidence as pass, fix, investigate, or not applicable, even when it falls outside the implementation shortlist?
 - Can the buyer understand the product, fit, value, evidence, total cost, and next step?
 - Does each important claim have a real source? Are examples and proposals clearly identified?
 - Does the CTA lead to the promised action and preserve the chosen plan and interval?
 - Do displayed prices, limits, trial conditions, and renewal terms match actual behavior?
+- If pricing is in scope, is `assets/pricing-audit.md` complete, including the fresh-visitor default, both billing states for every tier, and a reasoned default decision?
+- Does annual mode prominently show the monthly equivalent for comparable monthly/annual plans, with a legible adjacent annual charge and billing label? Is the comparison unit consistent across the switch?
+- Are savings computed for each actual plan, upgrade value clear, and recommendation labels supported by fit or evidence?
+- Does an annual-first default apply only to an eligible undecided visitor, while deliberate choices, valid intended links, account context, and experiment assignment remain respected?
+- Were the switch in both directions, selection continuity, and actual checkout plan/interval checked rather than inferred from text appearing in the source?
 - Can the journey complete with keyboard, mobile layout, and relevant error/recovery states?
 - Are loading, pending, payment failure, success, and entitlement states truthful?
 - Is important information available without misleading defaults, fake urgency, or obstructed exit?

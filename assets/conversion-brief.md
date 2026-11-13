@@ -36,6 +36,15 @@ Fill from available evidence. Mark each fact as verified, assumption, or unknown
 - Refund/cancellation policy and actual path:
 - Price/plan source of truth and current integration version:
 - Unknown facts that block publishing a specific claim:
+- Pricing surfaces in scope: complete `assets/pricing-audit.md`, including the observed and chosen default, price-state matrix, and selection continuity.
+
+## Baseline coverage
+
+Complete each applicable baseline row from `SKILL.md` before selecting the implementation batch. Use `pass`, `fix`, `investigate`, or `not applicable`; identify unavailable checks explicitly.
+
+| Surface/check | Status | Evidence or access limitation | Action or reason | Implemented / proposed / deferred |
+| --- | --- | --- | --- | --- |
+| | | | | |
 
 ## Diagnosis and selected work
 

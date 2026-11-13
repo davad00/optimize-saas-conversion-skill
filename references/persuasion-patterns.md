@@ -72,6 +72,14 @@ Do not use humiliating opt-out wording. Keep declining an offer understandable a
 
 Treat whole numbers, .99 endings, precise numbers, currency display, and billing frames as positioning and comprehension experiments. Do not claim a universal premium or bargain effect. Keep total payable price visible and calculate savings correctly. Use segment-appropriate tests and contribution guardrails.
 
+### Annual framing and starting selections
+
+Inspect these explicitly on every pricing audit; do not assume accurate billing text means the presentation is effective. For comparable monthly/annual plans, keep the main comparison on a monthly basis: `$12/month` versus `$9.60/month`, with `$115.20 billed yearly` directly below the annual equivalent. Verify the 20% saving from actual prices and retain the full annual commitment. At checkout, foreground the actual amount due.
+
+For a suitable discounted annual self-serve offer, use annual-first as the starting presentation hypothesis for an undecided new visitor, following the decision rules in `pricing-and-packaging.md`. Preserve an explicit monthly choice, account context, intended links, and experiment assignment. Do not infer that annual is appropriate from a discount alone when seasonal use, a monthly campaign promise, or observed buyer needs favor flexibility.
+
+Implement authorized reversible presentation improvements with a clear mechanism and measurement plan. Lack of measured uplift is a reason to qualify the effect, not a reason to leave the observed problem untouched. Measure overall paid conversion and retained value as well as annual share; a higher annual share alone can conceal fewer total buyers.
+
 ### Personalization and self-selection
 
 Use declared goals, role, company needs, language, region, or observed product usage where appropriate to the site's data policies. Make meaningful preferences editable. Show relevant proof and workflows; avoid fabricated personal messages or sensitive-trait inference.

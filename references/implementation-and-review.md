@@ -18,9 +18,13 @@ Preserve established brand tokens, typography, component behavior, and content f
 
 Map every important CTA to its real destination and expected next state. Specify what happens for new visitors, authenticated customers, existing subscribers, and people returning from an interrupted flow. Document the meaning of “selected,” “current,” “recommended,” “unavailable,” and “pending.” A highlighted plan must not silently change the purchase selection.
 
+For any pricing work, complete `assets/pricing-audit.md` from the skill root. Specify the initial billing default, selection precedence, each plan's monthly and annual display, actual bill, savings, and checkout payload before editing. Use the monthly equivalent as the annual-mode primary price for comparable plans, with the annual charge directly below. Treat an annual-first new-visitor default as a presentation hypothesis under the pricing playbook, not a change to billing terms.
+
 ## 3. Implement coherent states
 
 Keep plan, interval, currency, quantity, and experiment assignment consistent across server rendering, hydration, navigation, authentication, and checkout. Prevent a flash of the wrong price or variant. Prefer the project's stable assignment mechanism; do not randomize a visitor independently on every render. Count exposure when the eligible variant is actually presented according to the experiment contract.
+
+Keep display unit separate from charge interval: an annual plan may display a per-month equivalent while still sending the verified annual price identifier to checkout. Derive both views from the same catalog. Never construct an annual checkout amount by multiplying a rounded monthly-equivalent label. Apply the default only when no higher-priority explicit selection, valid intended link, account context, or experiment assignment applies; do not reset a monthly choice during hydration or navigation.
 
 Keep essential offer content and navigation readable while enhancement loads. Use real links for navigation and real buttons for actions. If the checkout provider requires JavaScript, display a useful explanation or recovery path when it cannot initialize; never show a false success state. Reserve space for asynchronous content so a purchase target does not jump while someone clicks.
 
@@ -40,6 +44,8 @@ When browser tools are available, capture the baseline and result at comparable 
 
 Use existing lint, type, build, and targeted integration checks that cover the changed paths. Add tests for meaningful behavioral risks: wrong plan submitted, duplicate purchase handling, inaccessible selection, or lost return state. Do not create brittle tests that merely repeat the implementation or broaden testing without a concrete unresolved risk.
 
+For pricing changes, verify fresh state, monthly → annual → monthly, explicit selection through navigation/authentication, and the CTA payload for every affected plan. Check the initial server render and hydrated state when relevant. Inspect both the prominence of the price and readability of the billed total at mobile and desktop sizes. A string-presence assertion alone cannot validate either hierarchy or legibility. When browser execution is unavailable, verify code/arithmetic and label rendered hierarchy, persistence, and payment behavior unverified as appropriate.
+
 Compare relevant loading, responsiveness, and layout stability evidence. Separate controlled lab diagnostics from real-user field data; a Lighthouse result alone is not a field measurement or conversion result. Current Core Web Vitals guidance uses LCP, INP, and CLS, evaluated at the 75th percentile with mobile and desktop segmentation. Check current guidance when applying thresholds. [Web Vitals](https://web.dev/articles/vitals)
 
 Inspect introduced media, scripts, fonts, and third-party widgets. Keep an animation or analytics addition only when it serves the buyer task or measurement plan at an acceptable cost. Verify event payloads and deduplication without exposing personal data.
@@ -49,5 +55,7 @@ Inspect introduced media, scripts, fonts, and third-party widgets. Keep an anima
 For broad or consequential changes, use an independent reviewer with fresh context when available. Supply the artifact or running page, buyer task, verified offer facts, and acceptance criteria. Withhold the author's preferred diagnosis and claimed winning variant. Ask for observable failures, unsupported claims, journey breaks, and measurement weaknesses, each with a location and reproducible evidence.
 
 Adjudicate findings against the actual task. Fix relevant defects; do not chase arbitrary aesthetic scores or force repeated review rounds after the change is adequately verified. If independent review is unavailable, perform and label a self-review. Keep useful work moving.
+
+Require the baseline coverage record and pricing state matrix, where applicable, during review. The highest-priority shortlist does not excuse an unchecked billing default, inconsistent comparison unit, unsupported savings label, or lost selection. Resolve each required check as pass, fix, investigate, or not applicable with evidence.
 
 Deliver the changes, rationale, checks performed, material limitations, and the next measurement decision. Include before/after evidence when captured and distinguish local readiness from deployment status. State the expected conversion mechanism as a hypothesis. Functional correctness, accessible controls, better screenshots, and reviewer agreement do not establish a causal sales increase; that conclusion requires suitable outcome data.

@@ -161,6 +161,51 @@ class CroMathTests(unittest.TestCase):
         self.invalid("pricing", "--monthly-price", "10", "--annual-price", "120", "--currency", "US dollars")
         self.invalid("pricing", "--monthly-price", "10", "--annual-price", "120", "--display-decimals", "20")
 
+    def test_discounted_annual_cards_keep_monthly_comparison_and_exact_bill(self):
+        for monthly, annual, equivalent, saving in (("12", "115.20", "9.60", "28.8"),
+                                                    ("24", "230.40", "19.20", "57.6")):
+            with self.subTest(monthly=monthly):
+                result = self.result("pricing", "--monthly-price", monthly, "--annual-price", annual)
+                self.assertEqual(result["percent_saved_exact_fraction"], "20")
+                self.assertEqual(result["annual_amount_saved_vs_monthly"], saving)
+                monthly_card = result["suggested_presentation"]["monthly"]
+                annual_card = result["suggested_presentation"]["annual"]
+                self.assertEqual(monthly_card["primary_unit"], annual_card["primary_unit"])
+                self.assertEqual(annual_card["primary_unit"], "month")
+                self.assertEqual(monthly_card["billed_interval"], "month")
+                self.assertEqual(annual_card["billed_interval"], "year")
+                self.assertEqual(annual_card["primary_amount"], equivalent)
+                self.assertEqual(annual_card["primary_label"], f"USD {equivalent} per month")
+                self.assertEqual(annual_card["secondary_billing_label"], f"USD {annual} billed yearly")
+                self.assertFalse(annual_card["primary_amount_is_rounded"])
+                self.assertTrue(annual_card["is_monthly_equivalent"])
+                self.assertFalse(monthly_card["is_monthly_equivalent"])
+                self.assertIn("Save USD", annual_card["savings_label"])
+
+    def test_price_presentation_rounding_never_rounds_the_actual_charge(self):
+        result = self.result("pricing", "--monthly-price", "24.125", "--annual-price", "230.005")
+        cards = result["suggested_presentation"]
+        self.assertEqual(cards["monthly"]["primary_amount"], "24.125")
+        self.assertEqual(cards["annual"]["primary_amount"], "19.17")
+        self.assertTrue(cards["annual"]["primary_amount_is_rounded"])
+        self.assertEqual(cards["annual"]["primary_label"], "approximately USD 19.17 per month")
+        self.assertEqual(cards["annual"]["billed_amount"], "230.005")
+        self.assertEqual(cards["annual"]["secondary_billing_label"], "USD 230.005 billed yearly")
+        integer_display = self.result("pricing", "--monthly-price", "24", "--annual-price", "230.40",
+                                      "--display-decimals", "0")
+        self.assertEqual(integer_display["suggested_presentation"]["annual"]["primary_amount"], "19")
+        self.assertEqual(integer_display["suggested_presentation"]["annual"]["billed_amount"], "230.4")
+
+    def test_no_discount_or_surcharge_never_gets_a_savings_label(self):
+        for annual, comparison, label in (("120", "same_total", "Same total as twelve monthly payments"),
+                                           ("132", "surcharge", "USD 12.00 more per year than monthly billing")):
+            with self.subTest(annual=annual):
+                result = self.result("pricing", "--monthly-price", "10", "--annual-price", annual)
+                self.assertEqual(result["comparison"], comparison)
+                card = result["suggested_presentation"]["annual"]
+                self.assertIsNone(card["savings_label"])
+                self.assertEqual(card["comparison_label"], label)
+
     def test_black_white_and_identical_color_contrast(self):
         result = self.result("contrast", "#000", "#FFF")
         self.assertEqual(result["contrast_ratio"], 21)

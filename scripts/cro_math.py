@@ -227,6 +227,16 @@ def pricing(args):
         currency = args.currency.upper()
         relation = "discount" if savings > 0 else "surcharge" if savings < 0 else "same_total"
         approx = "approximately " if shown_equivalent != equivalent else ""
+        def charge_text(amount):
+            # Add ordinary display padding without rounding the actual charge.
+            decimals = max(args.display_decimals, len(decimal_text(amount).partition(".")[2]))
+            return format(amount, f".{decimals}f")
+
+        savings_label = (f"Save {currency} {charge_text(savings)} per year compared with monthly billing"
+                         if savings > 0 else None)
+        comparison_label = (savings_label if savings > 0 else
+                            f"{currency} {charge_text(-savings)} more per year than monthly billing"
+                            if savings < 0 else "Same total as twelve monthly payments")
         return {
             "command": "pricing",
             "currency_label": currency,
@@ -240,11 +250,37 @@ def pricing(args):
             "annual_plan_monthly_equivalent": decimal_text(equivalent),
             "monthly_equivalent_exact_fraction": fraction_text(equivalent_exact),
             "billing_label": f"{currency} {decimal_text(annual)} per year, billed annually ({approx}{currency} {format(shown_equivalent, 'f')} per month equivalent)",
+            "suggested_presentation": {
+                "monthly": {
+                    "primary_amount": charge_text(monthly),
+                    "primary_unit": "month",
+                    "primary_label": f"{currency} {charge_text(monthly)} per month",
+                    "primary_amount_is_rounded": False,
+                    "is_monthly_equivalent": False,
+                    "secondary_billing_label": f"{currency} {charge_text(monthly)} billed monthly",
+                    "billed_amount": decimal_text(monthly),
+                    "billed_interval": "month",
+                },
+                "annual": {
+                    "primary_amount": format(shown_equivalent, "f"),
+                    "primary_unit": "month",
+                    "primary_label": f"{approx}{currency} {format(shown_equivalent, 'f')} per month",
+                    "primary_amount_is_rounded": bool(approx),
+                    "is_monthly_equivalent": True,
+                    "secondary_billing_label": f"{currency} {charge_text(annual)} billed yearly",
+                    "billed_amount": decimal_text(annual),
+                    "billed_interval": "year",
+                    "comparison_label": comparison_label,
+                    "savings_label": savings_label,
+                },
+            },
             "notes": [
                 "Positive savings are a discount; negative savings are a surcharge. Both plans must include the same scope for a fair comparison.",
                 "Exact fractions preserve recurring values; decimal results use up to 60-digit precision. Display rounding does not change the billed annual price.",
                 "Calculation covers only the supplied amounts; verify taxes, fees, seat minimums, usage, term, renewal price, and currency display rules before publishing.",
                 "A monthly equivalent does not mean monthly billing. This arithmetic predicts no conversion improvement.",
+                "For comparable public pricing cards, use suggested_presentation primary labels with their adjacent, legible secondary billing labels. billing_label is a combined billing summary, not a prescribed headline.",
+                "Suggested presentation does not choose the default interval or alter the offer. Apply only to comparable verified plans and preserve any required seat or usage unit; add verified taxes, fees, commitment, and renewal terms.",
             ],
         }
 
