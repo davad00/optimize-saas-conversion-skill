@@ -2,6 +2,8 @@
 
 Use these mechanisms to help a suitable customer understand value and choose deliberately. Treat the implementation ideas below as hypotheses, not as guaranteed effects or a requirement to use every tactic.
 
+For concrete interventions, use `tactic-library.md` and the relevant 20-entry families linked from `SKILL.md`. The library contains 360 additional tactics; this playbook explains the broader mechanisms. Use `behavioral-evidence.md` for primary sources and limits when making a psychological claim.
+
 ## Apply an evidence ladder
 
 1. Observed product fact or defect: cite the actual source.

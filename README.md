@@ -4,7 +4,31 @@ A Codex skill for improving SaaS purchases, paid subscriptions, and retained cus
 
 Use it to audit an existing website, improve a pricing page, implement a clearer signup or checkout journey, reduce trial friction, and design a useful measurement plan. The workflow connects observed buyer obstacles to concrete changes in copy, design, offers, and code.
 
-**10 focused playbooks · 22 persuasion patterns · 5 reusable templates · Mandatory pricing-state audit · Tested Python calculator**
+**360 additional tactics · 18 tactic families · 22 persuasion patterns · 6 reusable templates · 2 read-only Python tools**
+
+## The 360-tactic library
+
+Read the complete **[360 practical SaaS conversion tactics](TACTICS.md)**, or use the [selection workflow](references/tactic-library.md) to find the relevant entries.
+
+Every tactic has a stable ID and six practical parts: **when it applies, the exact change, why it may help, what to check, what to measure, and the action scope**. There are exactly 20 tactics in each of these 18 families:
+
+| Family | IDs | Family | IDs |
+| --- | --- | --- | --- |
+| Acquisition intent | INT-001–020 | Decision psychology | DEC-001–020 |
+| Positioning | POS-001–020 | Calls to action | CTA-001–020 |
+| Copy and framing | CPY-001–020 | Visual attention and color | VIS-001–020 |
+| Proof and credibility | PRF-001–020 | Signup | SIG-001–020 |
+| Product demonstrations | DEM-001–020 | Checkout | PAY-001–020 |
+| Objections and risk | OBJ-001–020 | Activation and first value | ACT-001–020 |
+| Price presentation | PRI-001–020 | Contextual upgrades | UPG-001–020 |
+| Packaging and plan choice | PKG-001–020 | Retention and recovery | RET-001–020 |
+| Offers, trials, and promotions | OFR-001–020 | Sales and procurement | SLS-001–020 |
+
+Examples include showing the whole team bill, calculating a buyer-specific break-even point, placing relevant proof beside a specific doubt, preserving useful work through an upgrade, recovering interrupted checkout, and making the first useful product result easier to reach. Commercial changes and outreach are classified separately so the skill can prepare concrete proposals and use the authorization actually provided.
+
+The original **annual-first starting selection** and **monthly-equivalent annual headline** checks remain in the mandatory pricing gate. They are **not counted among the 360 additions**.
+
+The workflow scans the applicable families, matches their triggers to the actual site, and implements a coherent selection. It does not apply 360 changes to every page. The entries are concrete application hypotheses; the [behavioral evidence guide](references/behavioral-evidence.md) explains relevant research and its limits. No tactic is presented as a guaranteed sales increase.
 
 ## What it covers
 
@@ -100,7 +124,7 @@ a realistic way to learn whether they help.
 
 1. Establish the buyer, offer, conversion outcome, and verified product facts.
 2. Inspect the relevant journey and complete the applicable baseline checks, including every pricing state.
-3. Record each check's result, then prioritize a small, coherent set of improvements.
+3. Scan relevant tactic families, record matching IDs and evidence, then prioritize a small, coherent set of improvements.
 4. Write exact copy and behavior, then implement within the requested scope.
 5. Verify the affected experience and report any unavailable checks.
 6. Define how to measure business outcomes and distinguish hypotheses from demonstrated effects.
@@ -113,14 +137,39 @@ The skill preserves the existing stack and design system. It treats purchases, r
 | --- | --- |
 | [SKILL.md](SKILL.md) | Main instructions and playbook routing |
 | [agents/openai.yaml](agents/openai.yaml) | Skill display and invocation metadata |
-| [references/](references/) | Ten focused playbooks and source register |
+| [references/](references/) | Focused playbooks, research guidance, and 18 source catalogs |
+| [TACTICS.md](TACTICS.md) | Complete readable catalog of all 360 additional tactics |
+| [references/tactic-library.md](references/tactic-library.md) | Task routing, selection workflow, action scopes, and record format |
+| [references/behavioral-evidence.md](references/behavioral-evidence.md) | Primary research and limits for psychological mechanisms |
 | [assets/conversion-brief.md](assets/conversion-brief.md) | Business, buyer, offer, and intervention brief |
 | [assets/experiment-brief.md](assets/experiment-brief.md) | Experiment design and decision record |
 | [assets/event-contract.json](assets/event-contract.json) | Adaptable analytics event definitions |
 | [assets/review-checklist.md](assets/review-checklist.md) | Independent or self-review checklist |
 | [assets/pricing-audit.md](assets/pricing-audit.md) | Required billing-state matrix, default decision, savings, tier value, and checkout verification |
+| [assets/tactic-decisions.md](assets/tactic-decisions.md) | Compact family coverage, selected IDs, exact changes, and checks |
 | [scripts/cro_math.py](scripts/cro_math.py) | Sample-size, conversion, pricing, and contrast calculations |
+| [scripts/tactics.py](scripts/tactics.py) | Read-only catalog search, lookup, validation, and Markdown export |
 | [scripts/test_cro_math.py](scripts/test_cro_math.py) | Calculator tests |
+| [scripts/test_tactics.py](scripts/test_tactics.py) | Catalog completeness, retrieval, filtering, and integrity tests |
+
+## Find a tactic
+
+```bash
+python3 scripts/tactics.py categories
+python3 scripts/tactics.py list --category pricing
+python3 scripts/tactics.py search 'minimum seats total cost' --category pricing --limit 5
+python3 scripts/tactics.py search 'uncertainty' --category decisions --limit 5
+python3 scripts/tactics.py show PRI-001 DEC-001
+python3 scripts/tactics.py validate --similar
+```
+
+The helper uses Python's standard library. It makes no network requests, changes no website, sends no messages, and alters no billing. Search uses literal words; family lists provide a fallback when a query misses a useful entry. Each `references/tactics-*.jsonl` file is the source of truth for its 20 records.
+
+To regenerate the readable catalog after editing its source records:
+
+```bash
+python3 scripts/tactics.py export > TACTICS.md
+```
 
 ## Calculator
 
@@ -146,10 +195,10 @@ Read the assumptions and warnings in each JSON result. The statistical commands 
 
 The pricing command includes `suggested_presentation.monthly` and `.annual` with separate primary comparison prices and actual billed amounts. It marks rounded equivalents, retains exact charges, and avoids savings labels for equal-price or more-expensive annual offers. It does not choose a billing default or change the commercial offer.
 
-Run the calculator tests:
+Run the calculator and catalog tests:
 
 ```bash
-python3 -B -m unittest discover -s scripts -p test_cro_math.py -v
+python3 -B -m unittest discover -s scripts -p 'test_*.py' -v
 ```
 
 ## Evidence and inspirations

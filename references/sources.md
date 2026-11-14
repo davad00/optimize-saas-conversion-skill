@@ -2,6 +2,8 @@
 
 Research reviewed on 13 November 2026. Reopen current provider and standards documentation before implementation when versions or requirements matter. These references support the specific mechanisms and technical checks described here; they do not certify an uplift for an untested SaaS site.
 
+The 360-tactic expansion was researched on 14 November 2026. See [behavioral-evidence.md](behavioral-evidence.md) for the expanded primary-source map, including framing, defaults, mental accounting, progress, implementation intentions, participation, and sequential commitments. The tactics remain application hypotheses; those sources do not independently validate all 360 entries.
+
 ## How to use the evidence
 
 Label recommendations as observed defect, supported principle, application hypothesis, or site-validated effect. Cite project evidence beside observations. For external claims, cite the source and explain the transfer limit. Avoid borrowing percentages from unrelated products, vendor case studies, or behavioral experiments.
