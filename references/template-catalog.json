@@ -1,0 +1,1375 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "id": "TMP-001",
+      "title": "Conversion brief",
+      "category": "core",
+      "path": "assets/conversion-brief.md",
+      "purpose": "Establish the buyer, outcome, verified offer, and authorized work.",
+      "inputs": [
+        "Product and buyer context",
+        "Actual offer and funnel evidence",
+        "Requested scope"
+      ],
+      "related_tactics": [
+        "POS-001",
+        "INT-001"
+      ]
+    },
+    {
+      "id": "TMP-002",
+      "title": "Conversion experiment brief",
+      "category": "core",
+      "path": "assets/experiment-brief.md",
+      "purpose": "Plan a causal test or explicitly observational rollout with decision criteria.",
+      "inputs": [
+        "Hypothesis and variants",
+        "Eligible population and outcome",
+        "Assignment and analysis plan"
+      ],
+      "related_tactics": [
+        "DEC-001",
+        "CTA-012"
+      ]
+    },
+    {
+      "id": "TMP-003",
+      "title": "Adaptable event contract",
+      "category": "core",
+      "path": "assets/event-contract.json",
+      "purpose": "Define semantic analytics and billing events before adapting them to the project.",
+      "inputs": [
+        "Existing event and billing systems",
+        "Identity and counting rules",
+        "Outcome definitions"
+      ],
+      "related_tactics": [
+        "PAY-018",
+        "ACT-013"
+      ]
+    },
+    {
+      "id": "TMP-004",
+      "title": "Independent review checklist",
+      "category": "core",
+      "path": "assets/review-checklist.md",
+      "purpose": "Review the final conversion change against functional, factual, and measurement requirements.",
+      "inputs": [
+        "Final artifact",
+        "Verified offer facts",
+        "Checks performed and unavailable"
+      ],
+      "related_tactics": [
+        "PAY-001",
+        "VIS-002"
+      ]
+    },
+    {
+      "id": "TMP-005",
+      "title": "Mandatory pricing audit",
+      "category": "core",
+      "path": "assets/pricing-audit.md",
+      "purpose": "Inspect all pricing states, defaults, savings, and payment continuity.",
+      "inputs": [
+        "Verified price catalog",
+        "Rendered pricing states",
+        "Checkout and account context"
+      ],
+      "related_tactics": [
+        "PRI-001",
+        "DEC-007"
+      ]
+    },
+    {
+      "id": "TMP-006",
+      "title": "Tactic decision record",
+      "category": "core",
+      "path": "assets/tactic-decisions.md",
+      "purpose": "Record relevant family coverage, selected tactics, exact actions, and verification.",
+      "inputs": [
+        "Observed obstacles",
+        "Applicable tactic families",
+        "Existing authorization"
+      ],
+      "related_tactics": [
+        "DEC-001",
+        "DEC-008"
+      ]
+    },
+    {
+      "id": "TMP-007",
+      "title": "Buyer interview guide",
+      "category": "research",
+      "path": "assets/templates/buyer-interview-guide.md",
+      "purpose": "Investigate the circumstances behind a real buying or abandoning decision.",
+      "inputs": [
+        "Interview objective and segment",
+        "Recent purchase, evaluation, or abandonment example",
+        "Consent and recording preferences",
+        "Known product and offer facts"
+      ],
+      "related_tactics": [
+        "POS-006",
+        "DEC-001",
+        "OBJ-007"
+      ]
+    },
+    {
+      "id": "TMP-008",
+      "title": "Win, loss, and no-decision review",
+      "category": "research",
+      "path": "assets/templates/win-loss-review.md",
+      "purpose": "Compare documented buying outcomes to locate preventable obstacles and unsuitable demand.",
+      "inputs": [
+        "Closed opportunities with dates and segments",
+        "Customer explanations and seller notes",
+        "Offer versions and competitor context",
+        "Consistent outcome definitions"
+      ],
+      "related_tactics": [
+        "SLS-006",
+        "POS-004",
+        "OBJ-001"
+      ]
+    },
+    {
+      "id": "TMP-009",
+      "title": "Objection and evidence map",
+      "category": "research",
+      "path": "assets/templates/objection-evidence-map.md",
+      "purpose": "Place the right answer and supporting proof where a specific buying doubt appears.",
+      "inputs": [
+        "Customer questions or observed hesitation",
+        "Verified product documentation",
+        "Approved customer proof",
+        "Journey surfaces and buyer roles"
+      ],
+      "related_tactics": [
+        "PRF-004",
+        "OBJ-011",
+        "DEC-008"
+      ]
+    },
+    {
+      "id": "TMP-010",
+      "title": "Customer language lexicon",
+      "category": "research",
+      "path": "assets/templates/customer-language-lexicon.md",
+      "purpose": "Replace internal jargon with accurate language buyers use to describe their work.",
+      "inputs": [
+        "Permissioned transcripts or support excerpts",
+        "Product terminology and domain definitions",
+        "Target audience and language",
+        "Existing headlines and field labels"
+      ],
+      "related_tactics": [
+        "CPY-001",
+        "CPY-013",
+        "CPY-017"
+      ]
+    },
+    {
+      "id": "TMP-011",
+      "title": "Buyer segment priority decision",
+      "category": "research",
+      "path": "assets/templates/segment-priority-decision.md",
+      "purpose": "Choose which qualified buying situation a page or campaign should primarily serve.",
+      "inputs": [
+        "Observed customer segments and buying triggers",
+        "Conversion and retention by comparable cohort",
+        "Product fit and service costs",
+        "Reach and implementation constraints"
+      ],
+      "related_tactics": [
+        "POS-012",
+        "INT-006",
+        "DEC-018"
+      ]
+    },
+    {
+      "id": "TMP-012",
+      "title": "Journey evidence map",
+      "category": "research",
+      "path": "assets/templates/journey-evidence-map.md",
+      "purpose": "Connect buyer expectations and observed behavior across the entire purchase path.",
+      "inputs": [
+        "Routes and account states",
+        "Available analytics or session evidence",
+        "Verified offer facts",
+        "Primary conversion outcome and window"
+      ],
+      "related_tactics": [
+        "INT-001",
+        "CTA-006",
+        "PAY-018",
+        "ACT-013"
+      ]
+    },
+    {
+      "id": "TMP-013",
+      "title": "Offer comprehension session",
+      "category": "research",
+      "path": "assets/templates/comprehension-session.md",
+      "purpose": "Discover whether buyers understand the product, price, commitment, and next step.",
+      "inputs": [
+        "Current page or prototype",
+        "Representative buyer task",
+        "Verified offer answer key",
+        "Recruitment and note-taking approach"
+      ],
+      "related_tactics": [
+        "CPY-015",
+        "PRI-009",
+        "DEC-011"
+      ]
+    },
+    {
+      "id": "TMP-014",
+      "title": "Support-ticket obstacle coding",
+      "category": "research",
+      "path": "assets/templates/support-ticket-coding.md",
+      "purpose": "Turn recurring support questions into specific conversion and onboarding repairs.",
+      "inputs": [
+        "Redacted support tickets with dates",
+        "Issue-resolution outcomes",
+        "Affected plan and journey stage",
+        "Current help and product behavior"
+      ],
+      "related_tactics": [
+        "OBJ-011",
+        "ACT-019",
+        "RET-003"
+      ]
+    },
+    {
+      "id": "TMP-015",
+      "title": "Campaign-to-page message map",
+      "category": "acquisition",
+      "path": "assets/templates/campaign-message-match.md",
+      "purpose": "Keep the acquisition promise, offer, and landing-page next step consistent.",
+      "inputs": [
+        "Campaign creative and audience",
+        "Destination URLs and tracking conventions",
+        "Verified offer eligibility",
+        "Landing-page content and CTA destinations"
+      ],
+      "related_tactics": [
+        "INT-001",
+        "INT-003",
+        "CTA-006"
+      ]
+    },
+    {
+      "id": "TMP-016",
+      "title": "Search-intent destination map",
+      "category": "acquisition",
+      "path": "assets/templates/search-intent-route.md",
+      "purpose": "Route research, comparison, and purchase intent to useful destinations.",
+      "inputs": [
+        "Observed queries or search themes",
+        "Available content and product pages",
+        "Verified product fit",
+        "Acquisition and paid-outcome definitions"
+      ],
+      "related_tactics": [
+        "INT-002",
+        "INT-005",
+        "INT-020"
+      ]
+    },
+    {
+      "id": "TMP-017",
+      "title": "Factual competitor evaluation page",
+      "category": "acquisition",
+      "path": "assets/templates/competitor-evaluation-page.md",
+      "purpose": "Help buyers compare real alternatives on criteria relevant to their work.",
+      "inputs": [
+        "Dated primary sources for both products",
+        "Comparable workload and package",
+        "Buyer criteria",
+        "Verified pricing and capability limitations"
+      ],
+      "related_tactics": [
+        "INT-004",
+        "PRI-012",
+        "POS-018"
+      ]
+    },
+    {
+      "id": "TMP-018",
+      "title": "Integration entry-page brief",
+      "category": "acquisition",
+      "path": "assets/templates/integration-entry-page.md",
+      "purpose": "Convert integration interest by showing the supported workflow and required setup.",
+      "inputs": [
+        "Actual integration behavior and permissions",
+        "Supported plans and external dependencies",
+        "Sample input and output",
+        "Known restrictions and setup effort"
+      ],
+      "related_tactics": [
+        "INT-007",
+        "OBJ-001",
+        "OBJ-017",
+        "ACT-006"
+      ]
+    },
+    {
+      "id": "TMP-019",
+      "title": "Useful resource-to-product bridge",
+      "category": "acquisition",
+      "path": "assets/templates/useful-resource-bridge.md",
+      "purpose": "Turn a genuinely useful educational asset into a relevant product evaluation route.",
+      "inputs": [
+        "Completed educational resource",
+        "Matching product workflow",
+        "Acquisition context",
+        "Any access and follow-up preferences"
+      ],
+      "related_tactics": [
+        "INT-005",
+        "OFR-018",
+        "DEM-012"
+      ]
+    },
+    {
+      "id": "TMP-020",
+      "title": "Partner referral destination",
+      "category": "acquisition",
+      "path": "assets/templates/partner-referral-page.md",
+      "purpose": "Explain a referring relationship and continue a partner-specific buying context.",
+      "inputs": [
+        "Authorized partner relationship and claims",
+        "Referral offer and eligibility",
+        "Shared customer use case",
+        "Tracking and contact permissions"
+      ],
+      "related_tactics": [
+        "INT-009",
+        "PRF-008",
+        "PRF-011"
+      ]
+    },
+    {
+      "id": "TMP-021",
+      "title": "Expired campaign recovery page",
+      "category": "acquisition",
+      "path": "assets/templates/expired-offer-recovery.md",
+      "purpose": "Give visitors a useful and truthful route when an old promotion or campaign ends.",
+      "inputs": [
+        "Original campaign promise and expiry",
+        "Current verified offers",
+        "Known incoming links",
+        "Product continuity and support options"
+      ],
+      "related_tactics": [
+        "INT-013",
+        "CTA-018"
+      ]
+    },
+    {
+      "id": "TMP-022",
+      "title": "Hero copy and action block",
+      "category": "landing",
+      "path": "assets/templates/hero-copy-block.md",
+      "purpose": "Make the first screen explain the customer, outcome, mechanism, and next step.",
+      "inputs": [
+        "Priority buyer and task",
+        "Verified product capability",
+        "Real proof asset",
+        "Accurate CTA destination and commitment"
+      ],
+      "related_tactics": [
+        "POS-001",
+        "POS-002",
+        "CTA-016"
+      ]
+    },
+    {
+      "id": "TMP-023",
+      "title": "Landing-page decision outline",
+      "category": "landing",
+      "path": "assets/templates/landing-page-outline.md",
+      "purpose": "Arrange page sections around the questions a buyer must answer before proceeding.",
+      "inputs": [
+        "Primary acquisition promise",
+        "Buyer questions and objections",
+        "Verified offer and proof",
+        "Available product visuals and CTA"
+      ],
+      "related_tactics": [
+        "POS-010",
+        "CPY-012",
+        "PRF-004",
+        "CTA-004"
+      ]
+    },
+    {
+      "id": "TMP-024",
+      "title": "Evidence-backed proof card",
+      "category": "landing",
+      "path": "assets/templates/proof-card.md",
+      "purpose": "Turn an approved customer or product result into a credible proof block.",
+      "inputs": [
+        "Permissioned quotation or measured result",
+        "Identity and relationship disclosure",
+        "Baseline and result scope",
+        "Source, date, and intended placement"
+      ],
+      "related_tactics": [
+        "PRF-002",
+        "PRF-003",
+        "PRF-010",
+        "PRF-011"
+      ]
+    },
+    {
+      "id": "TMP-025",
+      "title": "Customer outcome case study",
+      "category": "landing",
+      "path": "assets/templates/customer-case-study.md",
+      "purpose": "Explain how a real customer achieved a result and what another buyer can reasonably learn.",
+      "inputs": [
+        "Approved customer account and quotations",
+        "Baseline and measured outcome",
+        "Implementation details and dependencies",
+        "Publication permissions"
+      ],
+      "related_tactics": [
+        "PRF-005",
+        "PRF-007",
+        "PRF-017"
+      ]
+    },
+    {
+      "id": "TMP-026",
+      "title": "Product demo storyboard",
+      "category": "landing",
+      "path": "assets/templates/product-demo-storyboard.md",
+      "purpose": "Show one useful task and its result without making the evaluator sit through an unrelated tour.",
+      "inputs": [
+        "Priority buyer task",
+        "Working product and safe sample input",
+        "Actual plan and prerequisites",
+        "Known wait and failure states"
+      ],
+      "related_tactics": [
+        "DEM-001",
+        "DEM-005",
+        "DEM-010",
+        "DEM-017"
+      ]
+    },
+    {
+      "id": "TMP-027",
+      "title": "Decision-focused FAQ block",
+      "category": "landing",
+      "path": "assets/templates/objection-faq-block.md",
+      "purpose": "Answer remaining purchase questions directly at the relevant page location.",
+      "inputs": [
+        "Observed buyer objections",
+        "Current product and policy sources",
+        "Related support material",
+        "Placement and next-step context"
+      ],
+      "related_tactics": [
+        "CPY-015",
+        "OBJ-010",
+        "OBJ-011",
+        "CTA-018"
+      ]
+    },
+    {
+      "id": "TMP-028",
+      "title": "CTA action and state specification",
+      "category": "landing",
+      "path": "assets/templates/cta-action-spec.md",
+      "purpose": "Make an action's wording, destination, commitment, and feedback agree.",
+      "inputs": [
+        "Buyer state and intended next step",
+        "Routes and authentication behavior",
+        "Plan or task context",
+        "Loading, error, and disabled conditions"
+      ],
+      "related_tactics": [
+        "CTA-001",
+        "CTA-002",
+        "CTA-019",
+        "CTA-020"
+      ]
+    },
+    {
+      "id": "TMP-029",
+      "title": "Plan-fit card",
+      "category": "pricing",
+      "path": "assets/templates/plan-fit-card.md",
+      "purpose": "Help buyers recognize the right plan through use case, capacity, and meaningful limits.",
+      "inputs": [
+        "Current verified catalog",
+        "Priority use case per tier",
+        "Exact prices and billing intervals",
+        "Real feature and capacity differences"
+      ],
+      "related_tactics": [
+        "PKG-001",
+        "PKG-004",
+        "PKG-005"
+      ]
+    },
+    {
+      "id": "TMP-030",
+      "title": "Differences-only plan comparison",
+      "category": "pricing",
+      "path": "assets/templates/plan-difference-table.md",
+      "purpose": "Make the upgrade decision depend on real incremental value.",
+      "inputs": [
+        "Verified entitlements per plan",
+        "Buyer decision criteria",
+        "Terminology and plan names",
+        "Current account context if applicable"
+      ],
+      "related_tactics": [
+        "PKG-002",
+        "PKG-003",
+        "PKG-006",
+        "UPG-004"
+      ]
+    },
+    {
+      "id": "TMP-031",
+      "title": "Value-metric decision worksheet",
+      "category": "pricing",
+      "path": "assets/templates/value-metric-decision.md",
+      "purpose": "Evaluate which billable unit buyers can understand, predict, and connect to value.",
+      "inputs": [
+        "Actual product usage and cost drivers",
+        "Customer outcome and forecast ability",
+        "Existing billing capabilities",
+        "Support and budget objections"
+      ],
+      "related_tactics": [
+        "PKG-019",
+        "PRI-003",
+        "PRI-005"
+      ]
+    },
+    {
+      "id": "TMP-032",
+      "title": "Usage bill explainer",
+      "category": "pricing",
+      "path": "assets/templates/usage-bill-explainer.md",
+      "purpose": "Explain variable, tiered, or minimum pricing with reproducible worked examples.",
+      "inputs": [
+        "Actual rate schedule and currency",
+        "Minimums, included units, caps, and overages",
+        "Typical and high workloads",
+        "Tax and rounding conventions"
+      ],
+      "related_tactics": [
+        "PRI-002",
+        "PRI-003",
+        "PRI-004",
+        "PRI-013"
+      ]
+    },
+    {
+      "id": "TMP-033",
+      "title": "Editable break-even widget specification",
+      "category": "pricing",
+      "path": "assets/templates/break-even-widget.md",
+      "purpose": "Help a buyer estimate the workload needed to justify a subscription under their own assumptions.",
+      "inputs": [
+        "Comparison horizon and verified fixed subscription cost over it",
+        "Buyer-provided task time and value",
+        "Supported product mechanism",
+        "One-time implementation/setup cost and fixed ongoing effort",
+        "Incremental per-task cost, including usage charges and fees"
+      ],
+      "related_tactics": [
+        "PRI-006",
+        "CPY-010"
+      ]
+    },
+    {
+      "id": "TMP-034",
+      "title": "Promotion and renewal timeline",
+      "category": "pricing",
+      "path": "assets/templates/promotion-timeline.md",
+      "purpose": "Make introductory discounts and later recurring charges understandable before purchase.",
+      "inputs": [
+        "Approved offer terms",
+        "Eligibility and actual expiry",
+        "Provider billing schedule",
+        "Renewal, cancellation, and tax rules"
+      ],
+      "related_tactics": [
+        "PRI-008",
+        "PAY-004",
+        "RET-012"
+      ]
+    },
+    {
+      "id": "TMP-035",
+      "title": "Commercial offer proposal",
+      "category": "pricing",
+      "path": "assets/templates/commercial-offer-proposal.md",
+      "purpose": "Prepare a concrete pilot, guarantee, bonus, credit, or installment offer for an authorized decision.",
+      "inputs": [
+        "Observed purchasing obstacle",
+        "Current terms and constraints",
+        "Cost and operational capacity",
+        "Existing authorization and required decision owner"
+      ],
+      "related_tactics": [
+        "OFR-004",
+        "OFR-005",
+        "OFR-011",
+        "OFR-012"
+      ]
+    },
+    {
+      "id": "TMP-036",
+      "title": "Switching-cost comparison",
+      "category": "pricing",
+      "path": "assets/templates/switching-cost-case.md",
+      "purpose": "Help buyers compare adoption effort and ongoing cost against their actual current workflow.",
+      "inputs": [
+        "Buyer current tools and contracts",
+        "Verified replacement capabilities",
+        "Migration effort and dependencies",
+        "Current offer and any authorized transition credit"
+      ],
+      "related_tactics": [
+        "PRI-007",
+        "OFR-007",
+        "OBJ-006",
+        "OBJ-007"
+      ]
+    },
+    {
+      "id": "TMP-037",
+      "title": "Buyer-specific quote summary",
+      "category": "pricing",
+      "path": "assets/templates/buyer-quote-summary.md",
+      "purpose": "Summarize the complete configured purchase so buyers can compare and share it accurately.",
+      "inputs": [
+        "Verified plan and quantity",
+        "Currency, taxes, fees, and term",
+        "Required add-ons or services",
+        "Quote validity and provider/source"
+      ],
+      "related_tactics": [
+        "PRI-001",
+        "PRI-014",
+        "PRI-015",
+        "SLS-019"
+      ]
+    },
+    {
+      "id": "TMP-038",
+      "title": "Signup field necessity review",
+      "category": "purchase",
+      "path": "assets/templates/signup-field-review.md",
+      "purpose": "Remove registration effort that is not required for the immediate account or task.",
+      "inputs": [
+        "Current form and server requirements",
+        "Authentication and fraud constraints",
+        "Downstream uses of collected fields",
+        "Target device and buyer task"
+      ],
+      "related_tactics": [
+        "SIG-001",
+        "SIG-009",
+        "SIG-010",
+        "SIG-011"
+      ]
+    },
+    {
+      "id": "TMP-039",
+      "title": "Identity and invitation recovery map",
+      "category": "purchase",
+      "path": "assets/templates/identity-recovery-map.md",
+      "purpose": "Help a buyer reach the correct account or workspace after identity conflicts.",
+      "inputs": [
+        "Actual authentication methods",
+        "Existing-account and invitation behavior",
+        "Return destinations and plan state",
+        "Security and recovery requirements"
+      ],
+      "related_tactics": [
+        "SIG-002",
+        "SIG-006",
+        "SIG-016",
+        "SIG-017",
+        "SIG-020"
+      ]
+    },
+    {
+      "id": "TMP-040",
+      "title": "Checkout order summary",
+      "category": "purchase",
+      "path": "assets/templates/checkout-order-summary.md",
+      "purpose": "Make the actual purchase commitment clear immediately before payment.",
+      "inputs": [
+        "Authoritative checkout amounts",
+        "Plan, quantity, interval, and currency",
+        "Renewal and cancellation terms",
+        "Tax, discounts, and receiving workspace"
+      ],
+      "related_tactics": [
+        "PAY-001",
+        "PAY-003",
+        "PAY-005",
+        "PAY-012",
+        "PAY-014"
+      ]
+    },
+    {
+      "id": "TMP-041",
+      "title": "Payment state and recovery copy",
+      "category": "purchase",
+      "path": "assets/templates/payment-state-recovery.md",
+      "purpose": "Guide buyers through failed, pending, authenticated, and interrupted payment attempts.",
+      "inputs": [
+        "Provider state semantics",
+        "Supported retry and payment methods",
+        "Server fulfillment behavior",
+        "Safe support identifiers"
+      ],
+      "related_tactics": [
+        "PAY-008",
+        "PAY-009",
+        "PAY-010",
+        "PAY-011",
+        "PAY-019",
+        "PAY-020"
+      ]
+    },
+    {
+      "id": "TMP-042",
+      "title": "Checkout continuity matrix",
+      "category": "purchase",
+      "path": "assets/templates/checkout-continuity-matrix.md",
+      "purpose": "Preserve a buyer’s deliberate plan, interval, quantity, and task across interruptions.",
+      "inputs": [
+        "Offer-selection state model",
+        "Authentication and payment routes",
+        "Persistence requirements",
+        "Deep-link and account-state rules"
+      ],
+      "related_tactics": [
+        "CTA-006",
+        "CTA-018",
+        "PAY-002",
+        "PAY-016"
+      ]
+    },
+    {
+      "id": "TMP-043",
+      "title": "Existing-account plan-change preview",
+      "category": "purchase",
+      "path": "assets/templates/plan-change-preview.md",
+      "purpose": "Explain the actual financial and entitlement effect of an upgrade or downgrade.",
+      "inputs": [
+        "Current actual entitlement and subscription",
+        "Provider proration or scheduled-change rules",
+        "Target plan and quantity",
+        "Credits, taxes, and renewal schedule"
+      ],
+      "related_tactics": [
+        "PAY-017",
+        "UPG-004",
+        "UPG-011",
+        "UPG-019"
+      ]
+    },
+    {
+      "id": "TMP-044",
+      "title": "Purchase confirmation and first-use handoff",
+      "category": "purchase",
+      "path": "assets/templates/purchase-confirmation.md",
+      "purpose": "Confirm a verified payment and give the buyer a direct route to useful access.",
+      "inputs": [
+        "Confirmed payment and entitlement state",
+        "Receipt and renewal facts",
+        "Receiving account",
+        "Relevant first-value task and support route"
+      ],
+      "related_tactics": [
+        "PAY-018",
+        "ACT-013",
+        "ACT-014"
+      ]
+    },
+    {
+      "id": "TMP-045",
+      "title": "First-value path map",
+      "category": "activation",
+      "path": "assets/templates/first-value-path.md",
+      "purpose": "Reduce the work between account creation and the first meaningful customer result.",
+      "inputs": [
+        "Concrete customer outcome",
+        "Current onboarding steps",
+        "Actual product dependencies",
+        "Observed completion and failure evidence"
+      ],
+      "related_tactics": [
+        "ACT-002",
+        "ACT-006",
+        "ACT-013",
+        "ACT-019"
+      ]
+    },
+    {
+      "id": "TMP-046",
+      "title": "Goal-based onboarding route",
+      "category": "activation",
+      "path": "assets/templates/goal-based-onboarding.md",
+      "purpose": "Adapt initial guidance to a user’s declared task without adding unnecessary questioning.",
+      "inputs": [
+        "Supported first tasks",
+        "Actual setup dependencies per task",
+        "Available starter data",
+        "Editable user preferences"
+      ],
+      "related_tactics": [
+        "ACT-001",
+        "ACT-008",
+        "ACT-020"
+      ]
+    },
+    {
+      "id": "TMP-047",
+      "title": "Editable starter-work specification",
+      "category": "activation",
+      "path": "assets/templates/editable-starter-example.md",
+      "purpose": "Give a new account useful sample work that demonstrates the product without creating unwanted commitments.",
+      "inputs": [
+        "Target first task",
+        "Safe sample content",
+        "Product actions and permissions",
+        "Save, delete, and reset behavior"
+      ],
+      "related_tactics": [
+        "ACT-003",
+        "DEM-004",
+        "DEM-013"
+      ]
+    },
+    {
+      "id": "TMP-048",
+      "title": "Import preview and recovery plan",
+      "category": "activation",
+      "path": "assets/templates/import-preview-recovery.md",
+      "purpose": "Help users trust and complete data import without losing progress.",
+      "inputs": [
+        "Supported formats and limits",
+        "Actual parser behavior",
+        "Field mapping and validation rules",
+        "Storage, retry, and cancellation semantics"
+      ],
+      "related_tactics": [
+        "ACT-004",
+        "ACT-005",
+        "ACT-017",
+        "OBJ-005"
+      ]
+    },
+    {
+      "id": "TMP-049",
+      "title": "Task-starting empty state",
+      "category": "activation",
+      "path": "assets/templates/task-starting-empty-state.md",
+      "purpose": "Turn an empty screen into a clear first task with a useful example.",
+      "inputs": [
+        "Screen purpose and supported actions",
+        "Required inputs",
+        "Example data or output",
+        "Permissions and account limitations"
+      ],
+      "related_tactics": [
+        "ACT-007",
+        "ACT-010",
+        "CTA-011"
+      ]
+    },
+    {
+      "id": "TMP-050",
+      "title": "Meaningful progress and feedback specification",
+      "category": "activation",
+      "path": "assets/templates/meaningful-progress-feedback.md",
+      "purpose": "Help users understand what is complete, what remains, and whether useful work has succeeded.",
+      "inputs": [
+        "Actual task states and completion signals",
+        "Required milestones",
+        "Processing and failure behavior",
+        "User-editable decisions"
+      ],
+      "related_tactics": [
+        "ACT-009",
+        "ACT-013",
+        "ACT-014",
+        "ACT-016"
+      ]
+    },
+    {
+      "id": "TMP-051",
+      "title": "Upgrade-and-resume journey specification",
+      "category": "activation",
+      "path": "assets/templates/upgrade-and-resume.md",
+      "purpose": "Let a user continue valuable blocked work after an authorized paid upgrade.",
+      "inputs": [
+        "Actual current and target entitlements",
+        "Draft persistence rules",
+        "Provider checkout and fulfillment states",
+        "Existing-plan alternatives"
+      ],
+      "related_tactics": [
+        "UPG-002",
+        "UPG-003",
+        "UPG-014",
+        "UPG-015"
+      ]
+    },
+    {
+      "id": "TMP-052",
+      "title": "Trial decision summary",
+      "category": "lifecycle",
+      "path": "assets/templates/trial-decision-summary.md",
+      "purpose": "Help an evaluator judge paid fit using actual results and remaining requirements.",
+      "inputs": [
+        "Verified trial terms and end state",
+        "Actual completed customer tasks",
+        "Known blockers and required paid capabilities",
+        "Authorized communication scope"
+      ],
+      "related_tactics": [
+        "UPG-016",
+        "OFR-001",
+        "POS-014"
+      ]
+    },
+    {
+      "id": "TMP-053",
+      "title": "Usage-limit notice and next-step block",
+      "category": "lifecycle",
+      "path": "assets/templates/usage-limit-notice.md",
+      "purpose": "Explain an approaching allowance limit before it unexpectedly interrupts useful work.",
+      "inputs": [
+        "Current verified usage and allowance",
+        "Reset timing and timezone",
+        "Supported overage or upgrade options",
+        "Account role and dismissal behavior"
+      ],
+      "related_tactics": [
+        "UPG-001",
+        "UPG-005",
+        "UPG-008",
+        "UPG-020",
+        "OBJ-010"
+      ]
+    },
+    {
+      "id": "TMP-054",
+      "title": "Renewal value and commitment review",
+      "category": "lifecycle",
+      "path": "assets/templates/renewal-value-review.md",
+      "purpose": "Prepare a renewal decision using realized value, current needs, and exact upcoming terms.",
+      "inputs": [
+        "Actual account outcomes and use",
+        "Renewal amount, date, and scope",
+        "Known support issues",
+        "Current buyer roles and authorization"
+      ],
+      "related_tactics": [
+        "RET-001",
+        "RET-002",
+        "RET-012",
+        "RET-017"
+      ]
+    },
+    {
+      "id": "TMP-055",
+      "title": "Failed renewal recovery plan",
+      "category": "lifecycle",
+      "path": "assets/templates/failed-renewal-recovery.md",
+      "purpose": "Restore a subscription payment through the right account owner without confusing product access.",
+      "inputs": [
+        "Confirmed failed-renewal state",
+        "Provider retry schedule",
+        "Account billing roles",
+        "Grace period and access policy"
+      ],
+      "related_tactics": [
+        "RET-004",
+        "PAY-020"
+      ]
+    },
+    {
+      "id": "TMP-056",
+      "title": "Cancellation, pause, and downgrade options",
+      "category": "lifecycle",
+      "path": "assets/templates/cancellation-options.md",
+      "purpose": "Offer relevant alternatives while keeping the requested exit clear and operable.",
+      "inputs": [
+        "Actual cancellation and refund policies",
+        "Available pause/downgrade behavior",
+        "Data retention and export rules",
+        "Current subscription state"
+      ],
+      "related_tactics": [
+        "RET-007",
+        "RET-008",
+        "RET-009",
+        "RET-010",
+        "RET-011"
+      ]
+    },
+    {
+      "id": "TMP-057",
+      "title": "Reason-based reactivation brief",
+      "category": "lifecycle",
+      "path": "assets/templates/reactivation-reason-brief.md",
+      "purpose": "Prepare a relevant return path when the specific reason for leaving has changed.",
+      "inputs": [
+        "Documented departure reason",
+        "Verified product or offer change",
+        "Account retention and restore policy",
+        "Explicit outreach authorization if messaging"
+      ],
+      "related_tactics": [
+        "RET-014",
+        "RET-015",
+        "RET-016"
+      ]
+    },
+    {
+      "id": "TMP-058",
+      "title": "Account champion handoff",
+      "category": "lifecycle",
+      "path": "assets/templates/account-champion-handoff.md",
+      "purpose": "Preserve useful adoption and billing continuity when the customer’s internal owner changes.",
+      "inputs": [
+        "Current authorized account roles",
+        "Active workflows and commitments",
+        "Billing and integration ownership",
+        "Supported transfer process"
+      ],
+      "related_tactics": [
+        "RET-006",
+        "RET-017",
+        "SLS-016"
+      ]
+    },
+    {
+      "id": "TMP-059",
+      "title": "Sales discovery call plan",
+      "category": "sales",
+      "path": "assets/templates/discovery-call-plan.md",
+      "purpose": "Qualify a current buying opportunity and identify the next useful evaluation step.",
+      "inputs": [
+        "Prospect-stated goal and meeting context",
+        "Verified product boundaries",
+        "Known participants and buying stage",
+        "Authorized conversation scope"
+      ],
+      "related_tactics": [
+        "SLS-001",
+        "SLS-002",
+        "SLS-006",
+        "SLS-008"
+      ]
+    },
+    {
+      "id": "TMP-060",
+      "title": "Buyer-specific sales demo runbook",
+      "category": "sales",
+      "path": "assets/templates/buyer-specific-demo.md",
+      "purpose": "Demonstrate the prospect’s decisive workflow and capture evaluation evidence.",
+      "inputs": [
+        "Discovery findings and agreed criteria",
+        "Working product and safe buyer-relevant sample",
+        "Attendee roles",
+        "Actual package and limitations"
+      ],
+      "related_tactics": [
+        "SLS-004",
+        "SLS-012",
+        "DEM-006",
+        "DEM-016"
+      ]
+    },
+    {
+      "id": "TMP-061",
+      "title": "Champion approval memo",
+      "category": "sales",
+      "path": "assets/templates/champion-approval-memo.md",
+      "purpose": "Give an internal supporter a concise document they can use in their own approval process.",
+      "inputs": [
+        "Buyer-defined problem and evaluation results",
+        "Verified offer and implementation plan",
+        "Actual approval roles",
+        "Open risks and alternatives"
+      ],
+      "related_tactics": [
+        "SLS-007",
+        "SLS-006",
+        "SLS-008"
+      ]
+    },
+    {
+      "id": "TMP-062",
+      "title": "Buyer-owned business case",
+      "category": "sales",
+      "path": "assets/templates/buyer-business-case.md",
+      "purpose": "Build a reviewable purchase case using the buyer’s economics, objectives, and uncertainty.",
+      "inputs": [
+        "Buyer baseline and accounting conventions",
+        "Verified offer and implementation costs",
+        "Benefit assumptions and evidence",
+        "Decision horizon and required return criteria"
+      ],
+      "related_tactics": [
+        "PRI-006",
+        "SLS-008",
+        "SLS-012"
+      ]
+    },
+    {
+      "id": "TMP-063",
+      "title": "Mutual evaluation plan",
+      "category": "sales",
+      "path": "assets/templates/mutual-evaluation-plan.md",
+      "purpose": "Coordinate the buyer and seller around concrete evidence and an actual decision process.",
+      "inputs": [
+        "Buyer requirements and roles",
+        "Evaluation resources and product access",
+        "Real decision dates",
+        "Known procurement dependencies"
+      ],
+      "related_tactics": [
+        "SLS-005",
+        "SLS-006",
+        "SLS-018",
+        "SLS-020"
+      ]
+    },
+    {
+      "id": "TMP-064",
+      "title": "Pilot success agreement",
+      "category": "sales",
+      "path": "assets/templates/pilot-success-agreement.md",
+      "purpose": "Define a bounded evaluation that can produce an interpretable adoption decision.",
+      "inputs": [
+        "Buyer task and representative workload",
+        "Product and service capacity",
+        "Pilot terms and any approved credit",
+        "Evaluation owners and data handling"
+      ],
+      "related_tactics": [
+        "SLS-010",
+        "OFR-004",
+        "OFR-006"
+      ]
+    },
+    {
+      "id": "TMP-065",
+      "title": "Current sales proposal",
+      "category": "sales",
+      "path": "assets/templates/sales-proposal.md",
+      "purpose": "Present one authoritative offer with scope, cost, dependencies, and acceptance steps.",
+      "inputs": [
+        "Qualified buyer requirements",
+        "Verified current quote and package",
+        "Implementation commitments",
+        "Authorized terms and proposal version"
+      ],
+      "related_tactics": [
+        "SLS-009",
+        "SLS-015",
+        "SLS-019"
+      ]
+    },
+    {
+      "id": "TMP-066",
+      "title": "Procurement review tracker",
+      "category": "sales",
+      "path": "assets/templates/procurement-review-tracker.md",
+      "purpose": "Remove avoidable buying delays by assigning requirements, evidence, and dependencies.",
+      "inputs": [
+        "Buyer procurement requirements",
+        "Approved current security/legal/product documents",
+        "Actual reviewers and ownership",
+        "Target decision process"
+      ],
+      "related_tactics": [
+        "SLS-011",
+        "SLS-013",
+        "SLS-014",
+        "SLS-020"
+      ]
+    },
+    {
+      "id": "TMP-067",
+      "title": "Sales objection response card",
+      "category": "sales",
+      "path": "assets/templates/sales-objection-response.md",
+      "purpose": "Help a seller respond to a specific live concern without guessing the buyer’s reason.",
+      "inputs": [
+        "Buyer’s exact objection",
+        "Verified product and commercial facts",
+        "Relevant evidence",
+        "Permitted concessions and authority"
+      ],
+      "related_tactics": [
+        "DEC-008",
+        "PRF-004",
+        "OBJ-007",
+        "SLS-012"
+      ]
+    },
+    {
+      "id": "TMP-068",
+      "title": "Sales-to-implementation handoff",
+      "category": "sales",
+      "path": "assets/templates/sales-implementation-handoff.md",
+      "purpose": "Preserve the exact customer promise and success criteria after a purchase.",
+      "inputs": [
+        "Accepted proposal and actual contract",
+        "Verified account and entitlement",
+        "Evaluation findings and buyer roles",
+        "Implementation scope and open commitments"
+      ],
+      "related_tactics": [
+        "SLS-016",
+        "SLS-017",
+        "ACT-001"
+      ]
+    },
+    {
+      "id": "TMP-069",
+      "title": "Metric definition card",
+      "category": "measurement",
+      "path": "assets/templates/metric-definition-card.md",
+      "purpose": "Define a business measure that different systems and reviewers can reproduce.",
+      "inputs": [
+        "Business decision and outcome",
+        "Eligible population and counting unit",
+        "Available authoritative data",
+        "Observation window and exclusions"
+      ],
+      "related_tactics": [
+        "PRF-015",
+        "PRF-019"
+      ]
+    },
+    {
+      "id": "TMP-070",
+      "title": "Event reconciliation plan",
+      "category": "measurement",
+      "path": "assets/templates/event-reconciliation-plan.md",
+      "purpose": "Check that analytics events correspond to real product and billing outcomes.",
+      "inputs": [
+        "Project event contract",
+        "Sample client/server/provider records",
+        "Identity and deduplication rules",
+        "Known test journeys and consent behavior"
+      ],
+      "related_tactics": [
+        "PAY-018",
+        "SIG-020",
+        "ACT-013"
+      ]
+    },
+    {
+      "id": "TMP-071",
+      "title": "Comparable-cohort funnel diagnosis",
+      "category": "measurement",
+      "path": "assets/templates/funnel-diagnosis-sheet.md",
+      "purpose": "Locate major journey losses using counts that share an eligible population and time window.",
+      "inputs": [
+        "Defined entry cohort and counting unit",
+        "Ordered stage definitions",
+        "Event or aggregate counts",
+        "Outcome window and segment context"
+      ],
+      "related_tactics": [
+        "SIG-001",
+        "PAY-008",
+        "ACT-002"
+      ]
+    },
+    {
+      "id": "TMP-072",
+      "title": "Cohort retention and refund review",
+      "category": "measurement",
+      "path": "assets/templates/cohort-retention-review.md",
+      "purpose": "Assess durable paid value while accounting for follow-up maturity and billing differences.",
+      "inputs": [
+        "Customer entry cohort and plan interval",
+        "Defined retained-use or paid status",
+        "Refund and cancellation records",
+        "Complete follow-up availability"
+      ],
+      "related_tactics": [
+        "PRF-019",
+        "RET-017",
+        "RET-001"
+      ]
+    },
+    {
+      "id": "TMP-073",
+      "title": "Experiment assignment and exposure QA",
+      "category": "measurement",
+      "path": "assets/templates/assignment-exposure-qa.md",
+      "purpose": "Check whether a planned comparison can support the intended experiment analysis.",
+      "inputs": [
+        "Experiment allocation and randomization unit",
+        "Assignment and exposure logs",
+        "Eligibility and identity policy",
+        "Variant implementation and exclusion rules"
+      ],
+      "related_tactics": [
+        "DEC-007",
+        "CTA-006"
+      ]
+    },
+    {
+      "id": "TMP-074",
+      "title": "Low-traffic learning plan",
+      "category": "measurement",
+      "path": "assets/templates/low-traffic-learning-plan.md",
+      "purpose": "Learn from a small customer base without pretending it supports a precise uplift estimate.",
+      "inputs": [
+        "Available traffic and paid outcomes",
+        "Observed defects and major objections",
+        "Access to task sessions or customer evidence",
+        "Decision horizon and implementation cost"
+      ],
+      "related_tactics": [
+        "DEC-001",
+        "DEM-002",
+        "CPY-015"
+      ]
+    },
+    {
+      "id": "TMP-075",
+      "title": "Conversion rollout and rollback plan",
+      "category": "measurement",
+      "path": "assets/templates/rollout-rollback-plan.md",
+      "purpose": "Release an authorized change with observable checks and a concrete recovery path.",
+      "inputs": [
+        "Exact implemented change and dependencies",
+        "Existing release authorization",
+        "Functional verification and event checks",
+        "Baseline and material downside thresholds"
+      ],
+      "related_tactics": [
+        "PAY-011",
+        "PAY-018",
+        "RET-016"
+      ]
+    }
+  ]
+}

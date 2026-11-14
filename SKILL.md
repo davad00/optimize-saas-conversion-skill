@@ -1,11 +1,13 @@
 ---
 name: optimize-saas-conversion
-description: Audit, design, and implement conversion improvements for SaaS websites and subscription products. Use for CRO, more purchases or paid subscriptions, landing-page or pricing-page optimization, conversion copywriting, offer positioning, color and visual hierarchy, persuasion and behavioral psychology, pricing and packaging, signup and checkout friction, free-trial or freemium conversion, activation, paywalls, churn, expansion, funnel analytics, and A/B testing. Includes 360 actionable tactics with triggers, psychological mechanisms, concrete changes, checks, and scoped retrieval. Supports existing codebases, live sites, screenshots, and new pages. Deliver evidence-based findings, concrete changes, functional verification, and a measurement plan. Do not trigger for unrelated visual styling, general SEO alone, or unrelated billing backend work.
+description: Audit, design, and implement SaaS sales and conversion improvements. Use for more purchases or paid subscriptions, acquisition message match, landing pages, pricing, conversion copy, positioning, color and hierarchy, persuasion, packaging, signup, checkout, trials, activation, paywalls, upgrades, retention, sales demos, proposals, business cases, funnel analytics, and A/B testing. Includes 360 tactics, 66 persuasion patterns, 75 reusable templates, and 12 read-only Python tools. Supports existing codebases, live sites, screenshots, customer research, and local analytics exports. Deliver evidence-based findings, concrete changes, functional verification, and a measurement plan. Do not trigger for unrelated visual styling, general SEO alone, or unrelated billing backend work.
 ---
 
 # SaaS Conversion Optimizer
 
 Improve the path from a qualified visitor to a paying, successful, retained customer. Optimize the customer's understanding and realized value alongside the business outcome. Never promise an uplift that has not been measured.
+
+Use **360 tactics · 18 tactic families · 66 persuasion patterns · 75 reusable templates · 12 read-only Python tools** through the scoped selectors below. Load only the relevant records and outputs.
 
 ## Operating rules
 
@@ -17,12 +19,13 @@ Improve the path from a qualified visitor to a paying, successful, retained cust
 - Separate observed facts, general evidence, hypotheses, and unknowns. A visually polished page, accessibility check, heuristic score, or statistically significant result alone does not prove business benefit.
 - Complete the applicable baseline checks before choosing a shortlist. Use established conversion patterns to make concrete improvements; do not turn every reversible presentation choice into an unresolved request for an A/B test.
 - Use the 360-tactic library to expand the candidates, then select by observed trigger and buyer need. Scan applicable families before declaring the audit complete. Do not apply every tactic, pad the report with reworded findings, or let documentation delay an obvious authorized repair.
+- Connect the selected tactic to a fitting persuasion pattern, reusable output and deterministic tool when useful. Inspect the relevant selectors; do not leave the added resources unused because only the main instructions were read. Prefer the smallest set that resolves the buyer obstacle.
 - Use persuasive mechanisms with real offers and accurate information. Do not invent customers, testimonials, savings, scarcity, countdowns, certifications, ROI, stock, or plan popularity. Make recurring charges, limits, renewals, and cancellation understandable.
 - Work within authorization already given. Implement and test reversible local changes without redundant permission requests. Changing live prices or billing, publishing, launching an experiment, and contacting customers must fit the user's authorized scope; prepare concrete work first if additional authorization is necessary.
 
 ## 1. Establish the conversion contract
 
-Identify the requested mode: audit, implement, create, pricing, activation/retention, or experiment analysis. Combine modes only as useful.
+Identify the requested mode: audit, implement, create, acquisition, pricing, activation/retention, sales-assisted buying, or experiment analysis. Combine modes only as useful.
 
 Inspect applicable project instructions, routes, components, design tokens, package scripts, analytics events, authentication, billing integration, and available customer research. With a URL, inspect the relevant page and reachable journey; with screenshots, limit conclusions to what is visible. Do not invent missing behavior or private analytics access.
 
@@ -91,6 +94,9 @@ Read the relevant files before proposing domain-specific changes. Do not load th
 | Funnel diagnosis, customer research, prioritization, low traffic | [diagnosis-and-research.md](references/diagnosis-and-research.md) |
 | Positioning, message match, landing-page structure, proof, CTAs | [positioning-and-copy.md](references/positioning-and-copy.md) |
 | Behavioral psychology, persuasion, biases, decision aids | [persuasion-patterns.md](references/persuasion-patterns.md) |
+| Specific applied persuasion patterns and evidence | [66-pattern catalog](references/persuasion-catalog.jsonl) and [persuasion-evidence.md](references/persuasion-evidence.md); retrieve matching PAT IDs |
+| Reusable research, copy, offer, journey, sales and measurement outputs | [template-library.md](references/template-library.md) and [75-template manifest](references/template-catalog.json); retrieve matching TMP IDs |
+| Local-input calculators, data checks and resource retrieval | [python-tools.md](references/python-tools.md); [analytics-tools.md](references/analytics-tools.md) for the six analytical schemas |
 | Concrete conversion ideas and applicability checks | [tactic-library.md](references/tactic-library.md), the relevant families below, and [tactic decision record](assets/tactic-decisions.md) |
 | Research behind behavioral mechanisms and limits of transfer | [behavioral-evidence.md](references/behavioral-evidence.md) |
 | Color theory, hierarchy, typography, imagery, mobile, accessibility | [visual-design.md](references/visual-design.md) |
@@ -134,6 +140,39 @@ Retrieve without loading all entries:
     python3 <skill-dir>/scripts/tactics.py show PRI-001 DEC-001
 
 Use [assets/tactic-decisions.md](assets/tactic-decisions.md) as a compact working record, not a requirement to create extra documents. Tie selected IDs to observed obstacles and concrete changes. `commercial` and `outreach` labels identify action types; use existing authorization, prepare unapproved offers as proposals, and send messages only when explicitly authorized. If Python is unavailable, read the relevant JSONL directly. A search result is a candidate, not a recommendation or forecast.
+
+### Select the pattern, template and tool
+
+After finding the observed obstacle, inspect [the persuasion selector](references/persuasion-patterns.md) and [the template selector](references/template-library.md) for the relevant family. Choose a PAT mechanism/application when it explains the change; choose a TMP scaffold when it supplies the needed output. A mechanism, a concrete tactic and a fillable template serve different roles; do not count them as three separate improvements.
+
+    python3 <skill-dir>/scripts/resource_finder.py categories
+    python3 <skill-dir>/scripts/resource_finder.py search 'buyer uncertainty' --kind pattern --limit 5
+    python3 <skill-dir>/scripts/resource_finder.py search 'pricing' --kind template --limit 5
+    python3 <skill-dir>/scripts/resource_finder.py show PAT-023 TMP-005
+    python3 <skill-dir>/scripts/resource_finder.py render TMP-005
+
+Read selected records and their checks in full. Use literal search as a shortlist and scan category titles when vocabulary differs. Fill the chosen scaffold with verified facts, concrete copy/behavior and explicit unknowns; remove instructions and unresolved placeholders before delivering publishable material. Preserve appropriate constraints already in the project. Do not create all 75 templates or attach unused worksheets to a small fix.
+
+For acquisition work, connect the entry promise to the landing action and paid outcome. For sales-assisted buying, produce the useful discovery, demo, champion, proposal or procurement artifact and track qualified progression to wins. Preparing an email or follow-up draft never authorizes sending it. Commercial terms remain proposals until they fit existing authorization.
+
+Select the relevant deterministic tool from the next table when its required data is available. Keep raw facts, tool findings and interpretation separate. Record unavailable inputs without manufacturing data or blocking unrelated useful implementation.
+
+| Question | Tool |
+| --- | --- |
+| Which concrete intervention matches the observed obstacle? | [tactics.py](scripts/tactics.py) |
+| Which persuasion pattern or reusable output fits? | [resource_finder.py](scripts/resource_finder.py) |
+| Are price equivalents, binary experiment calculations or contrast arithmetic correct? | [cro_math.py](scripts/cro_math.py) |
+| Do observed cards, billed totals, quantities and checkout selections match catalog truth? | [offer_consistency.py](scripts/offer_consistency.py) |
+| Are local events structurally valid and deduplicated at the right levels? | [event_validator.py](scripts/event_validator.py) |
+| Does a supplied HTML snapshot expose common form/action obstacles? | [journey_lint.py](scripts/journey_lint.py) |
+| Where does a defined nested cohort leave the funnel? | [funnel_analyzer.py](scripts/funnel_analyzer.py) |
+| What retention can mature cohorts support? | [cohort_retention.py](scripts/cohort_retention.py) |
+| What explains monthly recurring-value movement, GRR and NRR? | [revenue_bridge.py](scripts/revenue_bridge.py) |
+| Are assignment, exposure, timing or allocation diagnostics problematic? | [experiment_guardrails.py](scripts/experiment_guardrails.py) |
+| How do stated acquisition cost, contribution and churn assumptions affect payback? | [unit_economics.py](scripts/unit_economics.py) |
+| How do offer assumptions change buyers, cash, refunds and normalized contribution? | [offer_scenarios.py](scripts/offer_scenarios.py) |
+
+These 12 tools use local inputs and stdout only. Read [their contracts and limits](references/python-tools.md) before interpreting results. They do not access production, contact customers, change prices or establish causal uplift. A clean static check does not replace rendered/browser verification or a real provider test.
 
 ## 4. Turn the hypothesis into an exact change
 

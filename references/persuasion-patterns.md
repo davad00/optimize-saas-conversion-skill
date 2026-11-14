@@ -1,48 +1,154 @@
 # Persuasion and buyer decision-making
 
-Use these mechanisms to help a suitable customer understand value and choose deliberately. Treat the implementation ideas below as hypotheses, not as guaranteed effects or a requirement to use every tactic.
+Use this library of **66 persuasion patterns**: the **22 original foundation mechanisms plus 44 additional applied patterns**. The additional entries solve distinct decision problems; they are not renamed claims that 66 independent psychological laws guarantee purchases. Select a pattern because it addresses an observed buyer obstacle.
 
-For concrete interventions, use `tactic-library.md` and the relevant 20-entry families linked from `SKILL.md`. The library contains 360 additional tactics; this playbook explains the broader mechanisms. Use `behavioral-evidence.md` for primary sources and limits when making a psychological claim.
+## Contents
+
+- [Select and retrieve patterns](#select-and-retrieve-patterns)
+- [Apply an evidence ladder](#apply-an-evidence-ladder)
+- [Complete pattern index](#complete-pattern-index)
+- [Handle popular "tricks" precisely](#handle-popular-tricks-precisely)
+- [Truth and implementation checks](#truth-and-implementation-checks)
+
+## Select and retrieve patterns
+
+Use [persuasion-catalog.jsonl](persuasion-catalog.jsonl) for each pattern's trigger, exact application, illustrative example, proposed mechanism, implementation check, measure, evidence class, and related tactic IDs. Use [persuasion-evidence.md](persuasion-evidence.md) to resolve its source IDs. Examples are illustrative or contain placeholders; replace them with verified product facts before publishing.
+
+Choose one primary obstacle: incomprehension, comparison effort, insufficient evidence, uncertain value, adoption risk, inability to act, group coordination, or unclear recurring value. Scan the matching family, inspect plausible records, and select the smallest coherent set. Combine with concrete interventions from [tactic-library.md](tactic-library.md); the 360 tactics and 66 persuasion patterns serve different purposes and are not additive counts of independent effects.
+
+```bash
+python3 <skill-dir>/scripts/resource_finder.py list --kind pattern --category comparison
+python3 <skill-dir>/scripts/resource_finder.py search 'uncertain usage bill' --kind pattern
+python3 <skill-dir>/scripts/resource_finder.py show PAT-024 PAT-043
+```
+
+Search uses literal terms; inspect the family index when a query misses the relevant wording. If the helper is unavailable, find an exact record with `rg '"id": "PAT-043"' <skill-dir>/references/persuasion-catalog.jsonl`. Do not load every record for a narrow task.
+
+Use patterns to specify the implementation, not decorate a report with bias names. For example, choose PAT-043 when variable usage makes the bill hard to anticipate; it calls for defensible usage scenarios using the actual rate schedule. Choose PAT-024 when users cannot picture doing the task; it calls for a realistic rehearsal. Those are different interventions despite both potentially reducing uncertainty.
 
 ## Apply an evidence ladder
 
 1. Observed product fact or defect: cite the actual source.
-2. Research-supported mechanism: name the research setting and limits of transfer.
-3. Application hypothesis: describe why this particular buyer might respond.
-4. Site-validated effect: report the population, outcome, time window, uncertainty, and guardrails.
+2. Research-linked mechanism or applicable requirement: identify the source's setting and limits.
+3. Application hypothesis: explain why this buyer and this implementation may fit.
+4. Site-validated effect: report population, outcome, observation window, uncertainty, and guardrails.
 
-Research on anchoring, social influence, scarcity, and choice does not provide a universal SaaS uplift. The source register links original work and reviews. For example, [anchoring research](https://doi.org/10.1126/science.185.4157.1124) concerns judgment, and [social-influence research](https://pubmed.ncbi.nlm.nih.gov/23929980/) studied online ratings. Use these to generate hypotheses, not borrowed conversion percentages.
+Research on a mechanism does not establish an untested SaaS uplift. Empty `source_ids` explicitly identifies a pattern with no particular study claimed. A source-backed record still needs product facts, working behavior, and outcome evidence before claiming conversion improved. Avoid stacking patterns until the page becomes noisy or the journey becomes longer.
 
-## Build a small, coherent intervention
+## Complete pattern index
 
-Choose one primary buyer obstacle: incomprehension, effort, lack of evidence, uncertainty, unsuitable offer, perceived risk, or inability to act. Select a mechanism that addresses it. Write the exact implementation and a possible downside before building.
 
-| Mechanism | Useful application hypothesis | Fit condition | Failure mode and outcome to watch |
-| --- | --- | --- | --- |
-| Processing fluency | Use familiar terms, explicit units, readable hierarchy, and a concrete next step | Visitors struggle to understand the offer | Oversimplification hides limits; assess comprehension and qualified purchase |
-| Specificity | Show a real task, output, audience, and mechanism | Broad claims feel interchangeable | Unsupported precision; assess fit and post-purchase expectation match |
-| Salience and contrast | Make the intended action visually distinct within the actual page | Buyers miss the next action | Every element is highlighted; assess action completion and paid outcomes |
-| Social proof | Place a verified, relevant customer result beside the corresponding doubt | Similar buyers need confidence | Irrelevant logos or invented claims; assess purchase, trust, and early churn |
-| Authority | Link accurate technical documentation, relevant credentials, or an expert explanation | Buyers need expertise or procurement reassurance | Borrowed prestige or fake badges; assess qualified progress |
-| Anchoring | Compare with a real alternative, premium offer, or current process cost | A meaningful reference helps valuation | Inflated reference price; assess revenue, plan fit, and refunds |
-| Contrast and compromise | Explain real trade-offs among useful plans | Multiple segments need different capacity or service | An artificial bad plan distorts choice; assess correct plan selection |
-| Risk reversal | Offer an operable trial, preview, guarantee, or assisted pilot | Uncertainty is blocking appropriate buyers | Unfulfillable promise or costly abuse; assess net retained value |
-| Reciprocity | Provide a genuinely useful template, sample, calculator, or lesson | A small artifact demonstrates the product's value | Low-quality bait and unwanted follow-up; assess qualified activation |
-| Commitment and consistency | Let users choose a relevant goal and continue toward it | The chosen goal improves setup | Unnecessary microcommitments; assess time to first value |
-| Ownership and investment | Let people create a useful result they can keep or clearly understand | Hands-on value demonstrates fit | Holding data or output hostage; assess repeat use and paid conversion |
-| Progress and goal proximity | Show completed meaningful setup tasks and what remains | A task has real completion criteria | Fake progress and cosmetic chores; assess task completion and value |
-| Defaults | Suggest a relevant, visible, reversible starting option | Preferences can be reasonably inferred from stated needs | Accidental billing or add-ons; assess satisfaction and refund rate |
-| Loss framing | Explain a documented cost of the current process alongside potential gain | The cost is real and decision-relevant | Fear or fabricated savings; assess qualified purchases and expectation match |
-| Real scarcity | Explain actual capacity or availability limits | Assisted onboarding or a cohort really is constrained | Fake stock for unlimited software; assess net purchases after cancellations |
-| Real urgency | Show a genuine deadline with a reason and exact terms | Timing is relevant to a real offer or event | Resetting timer and unexplained pressure; assess paid outcomes and complaints |
-| Mental accounting and price framing | Explain a real billing unit and optional equivalent cost | The comparison helps understand affordability | Hiding total commitment behind a tiny daily price; assess correct price comprehension |
-| Implementation intentions | Help the buyer choose the first useful task or an onboarding slot | A concrete plan helps them act | Calendar work before value; assess activation and time to value |
-| Autonomy | Offer a clear choice, editable preferences, skip, and direct cancellation | Users need control over adoption and commitment | Coercive defaults or blocked exit; assess continued satisfied use |
-| Anticipation and curiosity | Preview an actual useful output or a specific demo | The product has something meaningful to reveal | Clickbait that hides price or function; assess quality of downstream conversion |
-| Familiarity | Reuse recognizable controls and consistent language | A task should feel predictable | Mimicking a trusted brand or wasting repetition; assess task success |
-| Expectation management | Explain setup, limitations, and next steps before commitment | Success requires effort or a dependency | Removing necessary information to raise clicks; assess activation, refunds, support |
+### Original foundations: PAT-001–PAT-022
 
-Do not stack mechanisms until the page becomes noisy. A visible price, convincing demonstration, and smooth first task may do more for this product than multiple badges and urgency devices.
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-001 | Processing fluency | Visitors misread the product, billing unit, or next action even though the facts are present. |
+| PAT-002 | Specificity | Claims sound interchangeable because they omit the real task, output, audience, or operating condition. |
+| PAT-003 | Salience and contrast | People can describe the offer but miss the purchase action or selected state in a visually crowded page. |
+| PAT-004 | Social proof | Buyers doubt whether other relevant customers obtain useful results from the product. |
+| PAT-005 | Authority | Evaluation depends on a specialist claim that the buyer cannot easily verify unaided. |
+| PAT-006 | Anchoring | Buyers lack a meaningful reference for judging the subscription price or delivered value. |
+| PAT-007 | Contrast and compromise | Multiple viable packages serve different needs, but buyers cannot see their meaningful trade-offs. |
+| PAT-008 | Risk reversal | Appropriate buyers hesitate because they cannot resolve an important uncertainty before commitment. |
+| PAT-009 | Reciprocity | The product’s expertise is hard to assess before purchase, and a small useful artifact can demonstrate it. |
+| PAT-010 | Commitment and consistency | A visitor has a relevant goal but the next steps are disconnected from that goal. |
+| PAT-011 | Ownership and investment | Buyers understand claims but have not experienced creating something useful with the product. |
+| PAT-012 | Progress and goal proximity | A meaningful setup or evaluation task contains several steps and users cannot tell what remains. |
+| PAT-013 | Defaults | A reversible starting choice can be reasonably inferred for a new undecided buyer. |
+| PAT-014 | Loss framing | The current workflow has an evidenced recurring cost that is relevant to the buyer’s decision. |
+| PAT-015 | Real scarcity | An actual capacity constraint affects access to a service, cohort, or assisted setup. |
+| PAT-016 | Real urgency | A genuine deadline changes the available offer or the buyer’s ability to meet an important date. |
+| PAT-017 | Mental accounting and price framing | The billable unit or payment interval obscures how the offer fits the buyer’s budget. |
+| PAT-018 | Implementation intentions | A willing user knows what they want but does not translate that intention into a first concrete use. |
+| PAT-019 | Autonomy | The journey pushes users into a configuration or commitment they cannot easily inspect or change. |
+| PAT-020 | Anticipation and curiosity | The product can reveal a meaningful result, but the page describes it without making it tangible. |
+| PAT-021 | Familiarity | Unusual labels or controls make an otherwise ordinary buying task feel difficult or unpredictable. |
+| PAT-022 | Expectation management | Purchase success depends on setup, limits, human work, or conditions missing from the promise. |
+
+### Comprehension: PAT-023–PAT-028
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-023 | Causal walkthrough | Visitors understand the claimed result but cannot explain how the product could produce it. |
+| PAT-024 | Process rehearsal | Buyers want the outcome but hesitate because they cannot imagine performing the necessary steps. |
+| PAT-025 | Ordinary-day narrative | Feature lists fail to show how the subscription would fit a recurring working situation. |
+| PAT-026 | Bounded analogy mapping | The product introduces an unfamiliar concept that buyers repeatedly confuse with something else. |
+| PAT-027 | Same-input joint evaluation | The product advantage is hard to see when the old and new workflows are described separately. |
+| PAT-028 | Two-sided explanation | A sophisticated buyer distrusts an entirely positive claim or discovers important limitations only later. |
+
+### Evidence: PAT-029–PAT-034
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-029 | Claim-to-evidence traceability | Buyers see strong claims but cannot find the underlying artifact, method, or source needed to evaluate them. |
+| PAT-030 | Independent corroboration | All reassurance comes from repeated versions of the seller’s own claim. |
+| PAT-031 | Typical-outcome calibration | The page highlights a spectacular result that may feel unattainable or create unrealistic expectations. |
+| PAT-032 | Denominator-first proof | Large counts or percentages look impressive but leave buyers uncertain about the relevant population. |
+| PAT-033 | Situation-matched identification | Available customer stories concern organizations or tasks that the current buyer finds hard to identify with. |
+| PAT-034 | Freshness and version context | Buyers cannot tell whether a review, benchmark, or screenshot still describes the current product. |
+
+### Comparison: PAT-035–PAT-040
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-035 | Preference construction before recommendation | A buyer cannot choose because they have not identified which differences matter most for their job. |
+| PAT-036 | Must-have elimination | Buyers waste time evaluating packages that fail an essential requirement. |
+| PAT-037 | Aligned attribute comparison | Competing plans or products describe the same capability in different units or unrelated language. |
+| PAT-038 | Incremental value contrast | Existing customers see a full premium feature list but cannot tell what they would gain beyond current entitlements. |
+| PAT-039 | Opportunity-cost salience | A buyer compares subscription price in isolation while their current process consumes relevant budget or staff effort. |
+| PAT-040 | Recommendation with boundaries | A recommended plan looks arbitrary, overly confident, or selected for the seller’s margin. |
+
+### Valuation: PAT-041–PAT-046
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-041 | Work-unit translation | Credits, tokens, requests, or seats do not tell buyers how much useful work they can complete. |
+| PAT-042 | Integrated ownership cost | The advertised subscription omits required setup, extra tools, minimum seats, or recurring operational work. |
+| PAT-043 | Budget range framing | Usage varies enough that a single optimistic estimate leaves buyers afraid of an unpredictable bill. |
+| PAT-044 | Cash-flow timeline | A promotion, annual commitment, or installment schedule obscures what leaves the buyer’s account and when. |
+| PAT-045 | Break-even threshold | Buyers cannot connect the subscription’s fixed cost to how often they would use its benefit. |
+| PAT-046 | Flexibility option value | A lower annual equivalent competes with a real need for seasonal use, uncertain adoption, or limited commitment. |
+
+### Adoption risk: PAT-047–PAT-052
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-047 | Reversible adoption map | Buyers fear lock-in but cannot tell which adoption decisions can be undone and what an exit would involve. |
+| PAT-048 | Continuity bridge | The buyer sees future value but assumes switching requires an abrupt, risky replacement of the current workflow. |
+| PAT-049 | Buyer-defined proof of value | A prospect keeps exploring features without resolving whether the product satisfies the actual buying requirement. |
+| PAT-050 | Calibrated uncertainty with recovery | The product produces variable or probabilistic outputs, and buyers fear an unmanageable mistake. |
+| PAT-051 | Responsibility attribution | A benefit sounds attractive, but the buyer cannot tell which work belongs to them, the software, or a service team. |
+| PAT-052 | Specific fallback reassurance | Buyers worry about what happens when the normal workflow stalls, but the page offers only a vague support promise. |
+
+### Action: PAT-053–PAT-058
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-053 | Goal shielding | An interested user is diverted from the chosen task by unrelated setup, promotional prompts, or competing workflows. |
+| PAT-054 | Obstacle-linked if–then plan | Users intend to proceed but repeatedly stop at a predictable and recoverable obstacle. |
+| PAT-055 | Just-in-time concept teaching | Users abandon a decision because a technical term or configuration choice requires knowledge they do not yet have. |
+| PAT-056 | Choice-rationale reinstatement | A returning evaluator sees a saved selection but has forgotten why it seemed suitable. |
+| PAT-057 | Action feedback and closure | After a meaningful action, users are unsure whether it succeeded or what useful step follows. |
+| PAT-058 | Portable cognitive offloading | Evaluators must remember many trade-offs across sessions, tabs, or stakeholders. |
+
+### Group buying: PAT-059–PAT-062
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-059 | Role-specific value translation | The person who benefits from the workflow is different from the person approving the purchase. |
+| PAT-060 | Champion rehearsal | An enthusiastic evaluator struggles to explain the purchase internally without the vendor present. |
+| PAT-061 | Shared evidence checkpoint | Different stakeholders repeat the same evaluation or assume someone else has resolved a blocking issue. |
+| PAT-062 | Defined-group descriptive norms | A buyer wonders whether a workflow or adoption step is normal for peers in a relevant situation. |
+
+### Continued value: PAT-063–PAT-066
+
+| ID | Pattern | Inspect when |
+| --- | --- | --- |
+| PAT-063 | Episodic value recall | At a trial or upgrade decision, the user has experienced value but does not remember the concrete result. |
+| PAT-064 | Attributable value accounting | The subscription performs useful recurring work, but the account owner cannot see what it delivered over a period. |
+| PAT-065 | Mastery scaffolding | Users can complete a heavily guided first task but doubt their ability to use the product independently. |
+| PAT-066 | Fresh-start reentry | A former evaluator returns at a real new project or planning period after an earlier incomplete attempt. |
+
 
 ## Handle popular "tricks" precisely
 

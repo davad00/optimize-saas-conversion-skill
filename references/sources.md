@@ -4,6 +4,8 @@ Research reviewed on 13 November 2026. Reopen current provider and standards doc
 
 The 360-tactic expansion was researched on 14 November 2026. See [behavioral-evidence.md](behavioral-evidence.md) for the expanded primary-source map, including framing, defaults, mental accounting, progress, implementation intentions, participation, and sequential commitments. The tactics remain application hypotheses; those sources do not independently validate all 360 entries.
 
+The additional 44 persuasion patterns, 69 templates and ten Python tools were added on 14 November 2026. Use [persuasion-evidence.md](persuasion-evidence.md) for the expanded pattern-to-source map and transfer limits, [python-tools.md](python-tools.md) for local inspection contracts, and [analytics-tools.md](analytics-tools.md) for numerical definitions and primary technical references. The 66 persuasion records combine broad mechanisms and applied decision patterns; they are not 66 independently established laws of SaaS sales.
+
 ## How to use the evidence
 
 Label recommendations as observed defect, supported principle, application hypothesis, or site-validated effect. Cite project evidence beside observations. For external claims, cite the source and explain the transfer limit. Avoid borrowing percentages from unrelated products, vendor case studies, or behavioral experiments.
@@ -59,7 +61,7 @@ Stripe is an implementation example, not a required provider. Inspect the actual
 | [statsmodels, two-proportion sample-size approximation](https://www.statsmodels.org/stable/generated/statsmodels.stats.proportion.samplesize_proportions_2indep_onetail.html) | Normal-approximation planning assumptions |
 | [statsmodels, independent-proportion confidence intervals](https://www.statsmodels.org/stable/generated/statsmodels.stats.proportion.confint_proportions_2indep.html) | Method definitions and options |
 
-The bundled utility uses Python's standard library, not a hidden third-party analytics service. Inspect its assumptions and warnings. It does not validate assignment, privacy, cohort maturity, causality, continuous revenue, cluster dependence, or sequential stopping.
+The bundled tools use Python's standard library and local inputs. Inspect their assumptions and warnings. `experiment_guardrails.py` checks supplied assignment/exposure records and allocation; `cohort_retention.py` honors explicit maturity flags. These diagnostics do not independently establish complete logging, correct randomization, identity, privacy, cohort eligibility, causality, cluster independence or valid sequential stopping. The existing `cro_math.py` remains limited to its documented calculations.
 
 ## Skill design references supplied by the user
 

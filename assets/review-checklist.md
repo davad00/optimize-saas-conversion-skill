@@ -10,6 +10,9 @@ State who is trying to do what, their acquisition context, device/language, and 
 
 - Is every applicable baseline check from `SKILL.md` recorded with evidence as pass, fix, investigate, or not applicable, even when it falls outside the implementation shortlist?
 - Were relevant families in the 360-tactic library scanned, selected entries matched to actual triggers, and exact changes tied to IDs? Does the work avoid duplicates and arbitrary additions?
+- Were relevant persuasion patterns and templates considered, with selected PAT/TMP records applied to a concrete task? Does each filled template contain verified facts and usable output instead of unresolved placeholders or generic advice?
+- Were appropriate local tools used when inputs were available, with assumptions and findings interpreted correctly? Are static/source checks distinguished from rendered behavior, verified payment and measured business effects?
+- Do sales materials address the real buyer, economic decision and procurement path? Are proposed commercial changes and unsent communication drafts clearly identified within the user's existing authorization?
 - Can the buyer understand the product, fit, value, evidence, total cost, and next step?
 - Does each important claim have a real source? Are examples and proposals clearly identified?
 - Does the CTA lead to the promised action and preserve the chosen plan and interval?

@@ -4,7 +4,7 @@ A Codex skill for improving SaaS purchases, paid subscriptions, and retained cus
 
 Use it to audit an existing website, improve a pricing page, implement a clearer signup or checkout journey, reduce trial friction, and design a useful measurement plan. The workflow connects observed buyer obstacles to concrete changes in copy, design, offers, and code.
 
-**360 additional tactics · 18 tactic families · 22 persuasion patterns · 6 reusable templates · 2 read-only Python tools**
+**360 additional tactics · 18 tactic families · 66 persuasion patterns · 75 reusable templates · 12 read-only Python tools**
 
 ## The 360-tactic library
 
@@ -29,6 +29,64 @@ Examples include showing the whole team bill, calculating a buyer-specific break
 The original **annual-first starting selection** and **monthly-equivalent annual headline** checks remain in the mandatory pricing gate. They are **not counted among the 360 additions**.
 
 The workflow scans the applicable families, matches their triggers to the actual site, and implements a coherent selection. It does not apply 360 changes to every page. The entries are concrete application hypotheses; the [behavioral evidence guide](references/behavioral-evidence.md) explains relevant research and its limits. No tactic is presented as a guaranteed sales increase.
+
+## Persuasion patterns, templates, and tools
+
+The skill now combines four resources: a concrete tactic identifies **what to change**, a persuasion pattern explains **why it may help**, a reusable template supplies **the output to create**, and a Python tool checks **the relevant arithmetic or local evidence**. The workflow requires inspecting the applicable selectors before finalizing the work, while keeping the implementation set focused.
+
+### 66 persuasion patterns
+
+Read the complete **[66-pattern catalog](PERSUASION.md)**. It preserves the original 22 mechanisms and adds 44 applied patterns with stable PAT IDs, fit conditions, concrete applications, examples, checks, measures and evidence boundaries. Select the pattern that addresses the observed buying obstacle. The [pattern playbook](references/persuasion-patterns.md) and [primary-source map](references/persuasion-evidence.md) explain the distinctions and limits.
+
+### 75 reusable templates
+
+Open the **[75-template index](TEMPLATES.md)** or the [task selector](references/template-library.md). The original six are preserved, with 69 additional fillable outputs:
+
+| New template family | Count | Examples of the work it supports |
+| --- | ---: | --- |
+| Research | 8 | Buyer interviews, objections, evidence and fit |
+| Acquisition | 7 | Campaign-to-page alignment, entry intent and qualified traffic |
+| Landing pages | 7 | Page structure, copy, proof, comparisons and product demonstrations |
+| Pricing and offers | 9 | Costs, plan choice, commercial proposals and buyer-specific value |
+| Purchase | 7 | Signup, checkout, billing disclosures and recovery |
+| Activation | 7 | First-value paths, setup, progress and upgrade continuity |
+| Lifecycle | 7 | Adoption, renewal, retention, recovery and expansion |
+| Sales | 10 | Discovery, demos, champion support, proposals and procurement |
+| Measurement | 7 | Event definitions, cohort analysis, experiments and rollout decisions |
+| **Additional templates** | **69** | **75 total including the original six** |
+
+Each template includes when to use it, required inputs, a task-specific output scaffold and completion checks. Fill only the templates needed for the task; replace placeholders with verified facts. Drafting a message does not authorize sending it, and proposed commercial terms remain clearly identified.
+
+### 12 read-only Python tools
+
+The original `cro_math.py` and `tactics.py` are joined by ten new tools:
+
+| New tool | Practical use |
+| --- | --- |
+| `resource_finder.py` | Search patterns and templates, inspect IDs, print fillable templates, validate counts and references |
+| `offer_consistency.py` | Catch mismatched monthly/annual presentation, billed totals, quantities, price IDs and amounts due |
+| `event_validator.py` | Check event contracts, types, delivery duplicates, business keys and source declarations |
+| `journey_lint.py` | Flag common form, label and action obstacles in local rendered HTML |
+| `funnel_analyzer.py` | Find stage losses in a defined, nested eligible cohort |
+| `cohort_retention.py` | Calculate retention using mature cohorts and explicit point/survival definitions |
+| `revenue_bridge.py` | Reconcile new, expansion, contraction and churn MRR, plus GRR/NRR by currency |
+| `experiment_guardrails.py` | Detect assignment conflicts, missing joins, event timing and sample-ratio problems |
+| `unit_economics.py` | Explore contribution, customer acquisition cost, payback and churn assumptions |
+| `offer_scenarios.py` | Compare purchase, plan-mix, cash, refund and contribution scenarios |
+
+Use Python 3.10 or later. All tools use the standard library and local inputs; results go to stdout. They do not change websites, send messages or touch billing. See [the tool guide](references/python-tools.md) for exact interfaces and limitations, and [analytics schemas](references/analytics-tools.md) for worked CSV/JSON inputs. Shared modules and tests are not counted as user-facing tools.
+
+```bash
+python3 scripts/resource_finder.py search 'buyer uncertainty' --kind pattern --limit 5
+python3 scripts/resource_finder.py search 'pricing' --kind template --limit 5
+python3 scripts/resource_finder.py show PAT-023 TMP-005
+python3 scripts/resource_finder.py render TMP-005
+python3 scripts/resource_finder.py validate
+python3 scripts/offer_consistency.py --input offer-observations.json
+python3 scripts/funnel_analyzer.py --help
+```
+
+Tools verify their documented inputs and calculations. A static check does not establish live payment behavior, and a scenario is not a measured revenue forecast. The workflow keeps rendered verification, provider testing and outcome measurement explicit.
 
 ## What it covers
 
@@ -124,9 +182,9 @@ a realistic way to learn whether they help.
 
 1. Establish the buyer, offer, conversion outcome, and verified product facts.
 2. Inspect the relevant journey and complete the applicable baseline checks, including every pricing state.
-3. Scan relevant tactic families, record matching IDs and evidence, then prioritize a small, coherent set of improvements.
+3. Scan relevant tactic families, persuasion patterns and templates, then prioritize a small, coherent set of improvements tied to observed evidence.
 4. Write exact copy and behavior, then implement within the requested scope.
-5. Verify the affected experience and report any unavailable checks.
+5. Use appropriate local tools, verify the affected experience, and report unavailable checks.
 6. Define how to measure business outcomes and distinguish hypotheses from demonstrated effects.
 
 The skill preserves the existing stack and design system. It treats purchases, revenue, activation, and retention as distinct measures. It does not promise a conversion uplift before suitable outcome data exists.
@@ -139,8 +197,15 @@ The skill preserves the existing stack and design system. It treats purchases, r
 | [agents/openai.yaml](agents/openai.yaml) | Skill display and invocation metadata |
 | [references/](references/) | Focused playbooks, research guidance, and 18 source catalogs |
 | [TACTICS.md](TACTICS.md) | Complete readable catalog of all 360 additional tactics |
+| [PERSUASION.md](PERSUASION.md) | All 66 persuasion patterns with applications, checks and evidence boundaries |
+| [TEMPLATES.md](TEMPLATES.md) | Linked index of all 75 reusable templates |
 | [references/tactic-library.md](references/tactic-library.md) | Task routing, selection workflow, action scopes, and record format |
 | [references/behavioral-evidence.md](references/behavioral-evidence.md) | Primary research and limits for psychological mechanisms |
+| [references/persuasion-evidence.md](references/persuasion-evidence.md) | Pattern-specific primary-source register and transfer limits |
+| [references/template-library.md](references/template-library.md) | Template selection by task, inputs and output |
+| [assets/templates/](assets/templates/) | 69 additional fillable research, page, pricing, journey, sales and measurement templates |
+| [references/python-tools.md](references/python-tools.md) | All 12 tools, invocation, input contracts and limitations |
+| [references/analytics-tools.md](references/analytics-tools.md) | Schemas and examples for the six new analytical tools |
 | [assets/conversion-brief.md](assets/conversion-brief.md) | Business, buyer, offer, and intervention brief |
 | [assets/experiment-brief.md](assets/experiment-brief.md) | Experiment design and decision record |
 | [assets/event-contract.json](assets/event-contract.json) | Adaptable analytics event definitions |
@@ -149,8 +214,7 @@ The skill preserves the existing stack and design system. It treats purchases, r
 | [assets/tactic-decisions.md](assets/tactic-decisions.md) | Compact family coverage, selected IDs, exact changes, and checks |
 | [scripts/cro_math.py](scripts/cro_math.py) | Sample-size, conversion, pricing, and contrast calculations |
 | [scripts/tactics.py](scripts/tactics.py) | Read-only catalog search, lookup, validation, and Markdown export |
-| [scripts/test_cro_math.py](scripts/test_cro_math.py) | Calculator tests |
-| [scripts/test_tactics.py](scripts/test_tactics.py) | Catalog completeness, retrieval, filtering, and integrity tests |
+| [scripts/](scripts/) | Twelve user-facing tools, shared internal helpers, and four focused test modules |
 
 ## Find a tactic
 
@@ -195,7 +259,7 @@ Read the assumptions and warnings in each JSON result. The statistical commands 
 
 The pricing command includes `suggested_presentation.monthly` and `.annual` with separate primary comparison prices and actual billed amounts. It marks rounded equivalents, retains exact charges, and avoids savings labels for equal-price or more-expensive annual offers. It does not choose a billing default or change the commercial offer.
 
-Run the calculator and catalog tests:
+Run the calculator, catalog, inspection and analytics tests:
 
 ```bash
 python3 -B -m unittest discover -s scripts -p 'test_*.py' -v
